@@ -6,4 +6,6 @@ module com.example.firststepsintoadulthood2 {
 
     opens com.example.firststepsintoadulthood2 to javafx.fxml;
     exports com.example.firststepsintoadulthood2;
+    exports com.example.firststepsintoadulthood2.controllers;
+    opens com.example.firststepsintoadulthood2.controllers to javafx.fxml;
 }
