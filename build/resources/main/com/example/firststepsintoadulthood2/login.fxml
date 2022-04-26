@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+       <ImageView fitHeight="200.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+           <image>
+               <Image url="@../../../logo.png" />
+           </image>
+           <GridPane.margin>
+               <Insets bottom="-15.0" left="-125.0" />
+           </GridPane.margin>
+       </ImageView>
+       <Label prefHeight="18.0" prefWidth="88.0" text="Username:" GridPane.rowIndex="5">
+           <GridPane.margin>
+               <Insets left="260.0" />
+           </GridPane.margin>
+           <font>
+               <Font name="Calibri Light" size="15.0" />
+           </font>
+       </Label>
+       <Label text="Password:" GridPane.rowIndex="6">
+           <GridPane.margin>
+               <Insets left="260.0" />
+           </GridPane.margin>
+           <font>
+               <Font name="Calibri Light" size="15.0" />
+           </font>
+       </Label>
+       <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+           <GridPane.margin>
+               <Insets left="-35.0" right="270.0" />
+           </GridPane.margin>
+       </TextField>
+       <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+           <GridPane.margin>
+               <Insets left="-35.0" right="270.0" />
+           </GridPane.margin>
+       </PasswordField>
+      <Label text="Don't have an account?" GridPane.rowIndex="8">
+         <font>
+            <Font name="Calibri Light" size="15.0" />
+         </font>
+          <GridPane.margin>
+              <Insets left="258.0" />
+          </GridPane.margin>
+      </Label>
+      <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register now!" GridPane.columnIndex="1" GridPane.rowIndex="8">
+         <font>
+            <Font name="Calibri Light" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</GridPane>
