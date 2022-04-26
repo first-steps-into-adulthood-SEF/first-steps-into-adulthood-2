@@ -13,7 +13,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.8.1'
+    junitVersion = '5.8.2'
 }
 
 sourceCompatibility = '11'
@@ -25,11 +25,11 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.example.firststepsintoadulthood2'
-    mainClass = 'com.example.firststepsintoadulthood2.HelloApplication'
+    mainClass = 'com.example.firststepsintoadulthood2.Main'
 }
 
 javafx {
-    version = '11.0.2'
+    version = '16'
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
@@ -38,6 +38,13 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0.rc1'
+    implementation group: 'commons-validator', name: 'commons-validator', version: '1.7'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0'
+    implementation group: 'org.bedework.deploy', name: 'bw-wfmodules-com-fasterxml-jackson-core-databind', version: '1.0.4'
 }
 
 test {
