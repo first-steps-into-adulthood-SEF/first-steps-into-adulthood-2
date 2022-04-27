@@ -55,7 +55,7 @@
                <Insets left="-35.0" right="270.0" />
            </GridPane.margin>
        </TextField>
-       <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+       <PasswordField id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="6">
            <GridPane.margin>
                <Insets left="-35.0" right="270.0" />
            </GridPane.margin>
@@ -80,9 +80,6 @@
          <font>
             <Font name="Calibri Light" size="15.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </Button>
    </children>
 </GridPane>
