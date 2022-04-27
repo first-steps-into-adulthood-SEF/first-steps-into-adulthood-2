@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="600.0" fx:controller="com.example.firststepsintoadulthood2.controllers.LoginController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -76,7 +76,7 @@
                <Font name="Calibri Light" size="15.0" />
            </font>
        </Button>
-      <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register now!" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <Button mnemonicParsing="false" onAction="#LoginButtonClick()" style="-fx-background-color: transparent;" text="Register now!" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <font>
             <Font name="Calibri Light" size="15.0" />
          </font>
