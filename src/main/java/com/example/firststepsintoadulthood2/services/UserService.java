@@ -52,6 +52,19 @@ public class UserService {
 
     }
 
+    public static int checkCredentials(String username, String password){
+        int flag = 0;
+        for(User user : users){
+            if(user.getUsername().equals(username)){
+                flag=1;
+                if(user.getPassword().equals(encodePassword(username, password))){
+                    flag=2;
+                }
+            }
+        }
+        return flag;
+    }
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
         //loadUsersFromFile();
         //System.out.println(username);
