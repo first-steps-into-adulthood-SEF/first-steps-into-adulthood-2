@@ -53,11 +53,14 @@ public class UserService {
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
-
+        //loadUsersFromFile();
+        //System.out.println(username);
+        //System.out.println(users.size());
         for (User user : users) {
-
+            //System.out.println("ratttatat");
             if (Objects.equals(username, user.getUsername()) || username.equals("mali.admin") || username.equals("vali.admin"))  {
 
+                //System.out.println(username);
                 throw new UserAlreadyExistsException(username);
 
             }
