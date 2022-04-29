@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ForumController">
    <children>
       <ImageView fitHeight="148.0" fitWidth="206.0" layoutX="62.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -15,7 +15,7 @@
       </ImageView>
       <AnchorPane layoutX="-37.0" layoutY="162.0" prefHeight="627.0" prefWidth="874.0" style="-fx-background-color: #E6E6FA; -fx-background-radius: 100;">
       </AnchorPane>
-      <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="About forum">
+      <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
@@ -52,6 +52,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
+      <Button layoutX="587.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToForumPage" style="-fx-background-color: transparent;" text="Get back to forum page" textFill="#2200ff">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
 
    </children>
 </AnchorPane>
