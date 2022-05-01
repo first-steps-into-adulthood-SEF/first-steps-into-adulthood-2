@@ -1,11 +1,15 @@
 package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
+import com.example.firststepsintoadulthood2.services.PostService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,6 +17,9 @@ import java.io.IOException;
 
 public class ForumController extends LoginController{
 
+    public void fillWithPosts() throws IOException {
+        PostService.loadPostsFromFile();
+    }
 
     public void switchToForumDescriptionPage(ActionEvent event) throws IOException {
 

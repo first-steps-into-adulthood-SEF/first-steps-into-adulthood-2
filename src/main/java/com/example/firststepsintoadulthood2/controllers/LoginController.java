@@ -1,6 +1,7 @@
 package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
+import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -41,7 +42,6 @@ public class LoginController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
