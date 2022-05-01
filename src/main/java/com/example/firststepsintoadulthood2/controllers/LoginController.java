@@ -22,25 +22,31 @@ public class LoginController {
     public TextField usernameField;
     public PasswordField passwordField;
     public Label loginMessage;
+    protected static String keepUsername;
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(Main.class.getResource("register.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void switchToForumPage(ActionEvent event) throws IOException{
+
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
     protected void LoginButtonClick(ActionEvent event) throws IOException {
+
         if(UserService.checkCredentials(usernameField.getText(), passwordField.getText())==0){
             loginMessage.setText("User doesn't exist!");
         }
@@ -48,8 +54,11 @@ public class LoginController {
             loginMessage.setText("Incorrect password!");
         }
         else{
+
+            keepUsername = usernameField.getText();
             switchToForumPage(event);
         }
+
     }
 
 }

@@ -36,7 +36,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-color: C8A2C8;" text="Create post">
+      <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPostCreationPage" style="-fx-background-color: C8A2C8;" text="Create post">
          <font>
             <Font name="Calibri Bold" size="20.0" />
          </font>
