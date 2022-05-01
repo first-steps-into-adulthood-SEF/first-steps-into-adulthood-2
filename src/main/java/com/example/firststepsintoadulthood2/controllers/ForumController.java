@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.firststepsintoadulthood2.services.PostService.getPostList;
+
 
 public class ForumController extends LoginController{
 

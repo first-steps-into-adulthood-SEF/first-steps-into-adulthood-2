@@ -11,12 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
+import java.util.Stack;
 
 import static com.example.firststepsintoadulthood2.services.FileSystemService.getPathToFile;
 
 public class PostService {
 
-    private static List<Post> posts;
+    private static Stack<Post> posts;
     private static final Path POSTS_PATH = getPathToFile("posts.json");
 
 
@@ -31,27 +32,29 @@ public class PostService {
         }
 
 
-        posts = objectMapper.readValue(POSTS_PATH.toFile(), new TypeReference<List<Post>>() {});
+        posts = objectMapper.readValue(POSTS_PATH.toFile(), new TypeReference<Stack<Post>>() {});
 
     }
 
 
     public static void addPosts(String title, String description, String username) throws CouldNotWritePostsException {
 
-        checkNullFieldsPosts(title);
-        posts.add(new Post(title, description, username));
+        title = checkNullFieldsPosts(title);
+        posts.push(new Post(title, description, username));
         persistPosts();
 
     }
 
 
-    private static void checkNullFieldsPosts(String title){
+    private static String checkNullFieldsPosts(String title){
 
         if(Objects.equals(title, "")){
 
-            title = "Untitled";
+            title = "(Untitled)";
 
         }
+
+        return title;
 
     }
 
@@ -68,7 +71,7 @@ public class PostService {
         }
     }
 
-    public static List<Post> getPostList(){
+    public static Stack<Post> getPostList(){
 
         return posts;
 

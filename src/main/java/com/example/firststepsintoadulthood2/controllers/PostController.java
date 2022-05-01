@@ -4,11 +4,13 @@ import com.example.firststepsintoadulthood2.exceptions.*;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.UserService;
+import javafx.css.converter.CursorConverter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -54,15 +56,17 @@ public class PostController extends ForumController{
         AnchorPane root = new AnchorPane();
         Button yes = new Button("Yes");
         Button no = new Button("No");
-        Text text = new Text("Do you want to publish this post?");
+        Text text = new Text("Do you want to post this?");
 
         yes.setLayoutX(90);
         yes.setLayoutY(130);
+        yes.setCursor(Cursor.HAND);
         yes.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
         no.setLayoutX(170);
         no.setLayoutY(130);
+        no.setCursor(Cursor.HAND);
         no.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
-        text.setLayoutX(60);
+        text.setLayoutX(80);
         text.setLayoutY(100);
         root.getChildren().add(yes);
         root.getChildren().add(no);
@@ -78,12 +82,12 @@ public class PostController extends ForumController{
         stage.setTitle("Confirmation");
         stage.show();
 
-        yes.setOnAction(e->{
+
+        yes.setOnMousePressed(e->{
 
             try {
 
                 PostService.addPosts(titleField.getText(), descriptionField.getText(), keepUsername);
-
 
             } catch (CouldNotWritePostsException ex) {
 
@@ -91,12 +95,14 @@ public class PostController extends ForumController{
 
             }
 
-
             stage.close();
         });
 
 
-        no.setOnAction(e->{
+
+
+
+        no.setOnMousePressed(e->{
 
             stage.close();
 
