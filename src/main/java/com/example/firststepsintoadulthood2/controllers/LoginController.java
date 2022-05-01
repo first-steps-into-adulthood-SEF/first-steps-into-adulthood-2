@@ -117,7 +117,7 @@ public class LoginController {
 
             rootPost.getChildren().addAll(rectangle, title, user);*/
 
-            txtArea.appendText(post.getTitle() + post.getDescription() + " \n");
+            txtArea.appendText(post.getTitle() + post.getDescription() + post.getDate() + " \n");
 
             auxPosts.pop();
 
