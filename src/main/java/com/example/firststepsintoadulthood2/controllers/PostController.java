@@ -87,7 +87,9 @@ public class PostController extends ForumController{
 
             try {
 
-                PostService.addPosts(titleField.getText(), descriptionField.getText(), keepUsername);
+                java.util.Date date = new java.util.Date();
+
+                PostService.addPosts(titleField.getText(), descriptionField.getText(), keepUsername, String.valueOf(date));
 
             } catch (CouldNotWritePostsException ex) {
 

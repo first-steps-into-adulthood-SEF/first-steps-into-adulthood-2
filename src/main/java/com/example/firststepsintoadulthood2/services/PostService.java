@@ -37,10 +37,10 @@ public class PostService {
     }
 
 
-    public static void addPosts(String title, String description, String username) throws CouldNotWritePostsException {
+    public static void addPosts(String title, String description, String username, String date) throws CouldNotWritePostsException {
 
         title = checkNullFieldsPosts(title);
-        posts.push(new Post(title, description, username));
+        posts.push(new Post(title, description, username, date));
         persistPosts();
 
     }

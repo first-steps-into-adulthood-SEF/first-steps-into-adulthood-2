@@ -6,17 +6,19 @@ public class Post {
     private String title;
     private String description;
     private String username;
+    private String date;
 
     public Post(){
 
 
     }
 
-    public Post(String title, String description, String username) {
+    public Post(String title, String description, String username, String date) {
 
         this.title = title;
         this.description = description;
         this.username = username;
+        this.date = date;
 
     }
 
@@ -44,6 +46,14 @@ public class Post {
         this.username = username;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public boolean equals(Object o) {
 
@@ -56,6 +66,7 @@ public class Post {
         if (!title.equals(post.title)) return false;
         if (!description.equals(post.description)) return false;
         if (!username.equals(post.username)) return false;
+        if (!date.equals(post.date)) return false;
 
         return true;
     }
@@ -66,6 +77,7 @@ public class Post {
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", username='" + username + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 
