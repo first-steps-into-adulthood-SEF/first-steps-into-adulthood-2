@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ForumController">
     <children>
         <Button fx:id="PostPreviewTitle" layoutX="24.0" layoutY="25.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="552.0" style="-fx-background-color: transparent;" text="" textFill="#c8a2c8">
             <font>

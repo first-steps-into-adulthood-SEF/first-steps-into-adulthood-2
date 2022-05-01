@@ -7,8 +7,10 @@ import javafx.fxml.FXMLLoader;;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,8 +21,13 @@ import static com.example.firststepsintoadulthood2.services.PostService.getPostL
 
 public class ForumController extends LoginController{
 
+    public void createPostBodyAndAddToHomePage(){
+
+    }
+
     public void fillWithPosts() throws IOException {
         PostService.loadPostsFromFile();
+        createPostBodyAndAddToHomePage();
     }
 
     public void switchToForumDescriptionPage(ActionEvent event) throws IOException {
