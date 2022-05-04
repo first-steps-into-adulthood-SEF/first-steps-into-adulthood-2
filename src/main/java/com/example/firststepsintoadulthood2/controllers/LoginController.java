@@ -284,6 +284,27 @@ public class LoginController {
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");
         Button messageButton = new Button("Message user");
+        reportButton.setLayoutX(110);
+        reportButton.setLayoutY(30);
+        reportButton.setCursor(Cursor.HAND);
+        reportButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        viewProfileButton.setLayoutX(95);
+        viewProfileButton.setLayoutY(90);
+        viewProfileButton.setCursor(Cursor.HAND);
+        viewProfileButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        messageButton.setLayoutX(105);
+        messageButton.setLayoutY(150);
+        messageButton.setCursor(Cursor.HAND);
+        messageButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        root.getChildren().add(reportButton);
+        root.getChildren().add(viewProfileButton);
+        root.getChildren().add(messageButton);
+        Scene scene = new Scene(root, 300,200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Options");
+        stage.show();
     }
 
     public void returnToForum(ActionEvent event) throws IOException {

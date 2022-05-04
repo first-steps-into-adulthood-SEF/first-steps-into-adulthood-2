@@ -2,6 +2,7 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -36,9 +37,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="53.0" layoutY="51.0" mnemonicParsing="false" onAction="#displayOptions" prefHeight="51.0" prefWidth="54.0" style="-fx-background-color: transparent;">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
+      <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../default-avatar.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
