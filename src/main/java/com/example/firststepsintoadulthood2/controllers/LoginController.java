@@ -1,9 +1,14 @@
 package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
+import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
+import com.example.firststepsintoadulthood2.services.ReportedPostsService;
 import com.example.firststepsintoadulthood2.services.UserService;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,11 +23,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Stack;
+
+import static com.example.firststepsintoadulthood2.services.ReportedPostsService.loadReportedPostsFromFile;
 
 
 public class LoginController {
@@ -53,6 +62,7 @@ public class LoginController {
         stage.show();
 
     }
+
 
 
     @FXML
@@ -134,7 +144,15 @@ public class LoginController {
         flag.setCursor(Cursor.HAND);
         flag.setPrefHeight(20); flag.setPrefWidth(20);
         flag.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
-        flag.setLayoutX(43); /*flag.setLayoutY(400 + i);*/
+        flag.setLayoutX(43);
+        flag.setTooltip(new Tooltip("Report post"));
+        flag.setOnAction(e->{
+            try {
+                selectReason(post.getTitle(), post.getDescription(), post.getUsername(), post.getDate());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
 
 
         postPane.getChildren().add(title);
@@ -155,6 +173,72 @@ public class LoginController {
         postPane.setLayoutY(1000 + i);
 
     }
+
+
+    public void selectReason(String title, String description, String username, String date) throws IOException {
+
+        loadReportedPostsFromFile();
+
+        AnchorPane root = new AnchorPane();
+        Button confirm = new Button("Confirm selection");
+        Text text = new Text("Select from below one of the reasons for\n                 reporting this post :");
+
+        confirm.setLayoutX(90);
+        confirm.setLayoutY(120);
+        confirm.setCursor(Cursor.HAND);
+        confirm.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        text.setLayoutX(45);
+        text.setLayoutY(50);
+
+
+        String options[] = {"No useful contribution", "Offensive", "Not a suitable topic for the forum"};
+
+        ChoiceBox cb = new ChoiceBox(FXCollections.observableArrayList(options));
+        cb.setLayoutX(42);
+        cb.setLayoutY(80);
+        cb.setCursor(Cursor.HAND);
+        cb.setBackground(new Background(new BackgroundFill(Color.web("#E6E6FA"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+
+        root.getChildren().add(confirm);
+        root.getChildren().add(text);
+        root.getChildren().add(cb);
+        root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        Scene scene = new Scene(root, 300,200);
+
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Confirmation");
+        stage.show();
+
+
+
+
+
+        confirm.setOnMousePressed(e->{
+
+            try {
+
+                String selectedOption = (String)cb.getValue();
+
+                ReportedPostsService.addReportedPosts(title, description, username, date, selectedOption);
+
+            } catch (CouldNotWritePostsException ex) {
+
+                System.out.println(ex.getMessage());
+
+            }
+
+            stage.close();
+        });
+
+
+    }
+
+
 
     public void fillWithPosts() throws IOException {
 
