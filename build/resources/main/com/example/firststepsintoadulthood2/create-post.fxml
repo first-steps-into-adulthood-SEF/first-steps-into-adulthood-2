@@ -29,7 +29,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-         </children></AnchorPane>
+         </children>
+        </AnchorPane>
         <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
             <font>
                 <Font name="Calibri Bold" size="16.0" />

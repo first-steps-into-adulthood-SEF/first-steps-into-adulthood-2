@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+import static com.example.firststepsintoadulthood2.controllers.LoginController.keepUsername;
 import static com.example.firststepsintoadulthood2.services.PostService.getPostList;
 import static com.example.firststepsintoadulthood2.services.PostService.loadPostsFromFile;
 
@@ -74,7 +75,7 @@ public class PostController extends ForumController{
         root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         Scene scene = new Scene(root, 300,200);
-        scene.setFill(Color.RED);
+        //scene.setFill(Color.RED);
 
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

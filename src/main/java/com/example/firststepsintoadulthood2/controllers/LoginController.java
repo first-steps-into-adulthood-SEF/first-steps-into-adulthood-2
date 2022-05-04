@@ -5,27 +5,28 @@ import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Stack;
 
-import static com.example.firststepsintoadulthood2.services.PostService.getPostList;
-import static com.example.firststepsintoadulthood2.services.PostService.loadPostsFromFile;
 
 public class LoginController {
+
 
     public TextField usernameField;
     public PasswordField passwordField;
@@ -44,15 +45,15 @@ public class LoginController {
 
     public void switchToForumPage(ActionEvent event) throws IOException{
 
+        initialize();
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
-        createFeed();
-
     }
+
 
     @FXML
     protected void LoginButtonClick(ActionEvent event) throws IOException {
@@ -71,59 +72,101 @@ public class LoginController {
 
     }
 
+    @FXML
+    public VBox verticalBox;
 
-    public void createFeed() throws IOException {
+    public EventHandler<ActionEvent> openPost(Post post){
 
-        loadPostsFromFile();
+        return null;
+    }
 
-        Stack<Post> auxPosts = getPostList();
+    @FXML
+    public void initialize() {
 
-        TextArea txtArea = new TextArea();
+        try {
 
-        /*AnchorPane rootPost = new AnchorPane();
-        double defaultX = 150.0f;
-        double defaultY = 75.0f;
-        rootPost.setVisible(true);*/
+            fillWithPosts();
 
-        while (auxPosts.size() > 0){
+        } catch (IOException e) {
 
-            Post post = auxPosts.peek();
-
-            System.out.println(post.getTitle() + "---" + post.getDescription());
-
-            /*Rectangle rectangle = new Rectangle();
-
-            rectangle.setX(defaultX);
-            rectangle.setY(defaultY + 20);
-            rectangle.setWidth(300.0f);
-            rectangle.setHeight(50.0f);
-
-            rectangle.setArcWidth(30.0);
-            rectangle.setArcHeight(20.0);
-
-            rectangle.setFill(Color.web("#C8A2C8"));
-            rectangle.setVisible(true);
-
-            Text title = new Text(post.getTitle());
-            Text user = new Text("by" + keepUsername);
-
-            title.setX(defaultX + 5);
-            title.setY(defaultY + 25);
-            title.setVisible(true);
-
-            user.setX(defaultX + 5);
-            user.setY(defaultY + 30);
-            user.setVisible(true);
-
-
-            rootPost.getChildren().addAll(rectangle, title, user);*/
-
-            txtArea.appendText(post.getTitle() + post.getDescription() + post.getDate() + " \n");
-
-            auxPosts.pop();
+            e.printStackTrace();
 
         }
 
     }
+
+    int i = 0, j = 0;
+
+    public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException{
+
+        Pane postPane = new Pane();
+
+        postPane.prefHeight(300);
+        postPane.prefWidth(600);
+
+        Button title = new Button(post.getTitle() + "\n*by " + post.getUsername() + ", " + post.getDate() + "     ");
+        title.setTextAlignment(TextAlignment.LEFT);
+        title.setOnAction(openPost(post));
+        title.setCursor(Cursor.HAND);
+        title.setStyle("-fx-font-size:15 Calibri");
+        title.setLayoutX(-300);
+        title.setPrefWidth(380);
+        title.setPrefHeight(70);
+
+        if(i != 0){
+
+            title.setLayoutY(100 + i); i += 100;
+
+        }
+
+        title.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        Label space= new Label("");
+        space.setLayoutY(75 + j);
+
+        Image img = new Image("av30af0a6ffb584d0e709.png");
+        ImageView view = new ImageView(img);
+        view.setFitHeight(20); view.setFitWidth(20);
+        view.setLayoutX(43); view.setLayoutY(300 + i);
+
+        Button flag = new Button();
+        flag.setGraphic(view);
+        flag.setCursor(Cursor.HAND);
+        flag.setPrefHeight(20); flag.setPrefWidth(20);
+        flag.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        flag.setLayoutX(43); /*flag.setLayoutY(400 + i);*/
+
+
+        postPane.getChildren().add(title);
+        postPane.getChildren().add(space);
+        postPane.getChildren().add(flag);
+
+
+        try{
+
+            verticalBox.getChildren().add(postPane);
+
+        }catch(NullPointerException e){
+
+            e.printStackTrace();
+
+        }
+
+        postPane.setLayoutY(1000 + i);
+
+    }
+
+    public void fillWithPosts() throws IOException {
+
+        PostService.loadPostsFromFile();
+        Stack<Post> posts = PostService.getPostList();
+
+        for(Post post: posts){
+
+            createPostBodyAndAddToHomePage(post);
+
+        }
+    }
+
 
 }
