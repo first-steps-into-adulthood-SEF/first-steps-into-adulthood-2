@@ -2,7 +2,7 @@ package com.example.firststepsintoadulthood2.model;
 
 public class User {
 
-    private String fullName, birthday, username, password;
+    private String fullName, birthday, username, password, option, description;
 
     public User() {
 
@@ -14,6 +14,14 @@ public class User {
         this.birthday = birthday;
         this.username = username;
         this.password = password;
+
+    }
+
+    public User(String username, String option, String description) {
+
+        this.username = username;
+        this.option = option;
+        this.description = description;
 
     }
 
