@@ -7,6 +7,7 @@ public class Post {
     private String description;
     private String username;
     private String date;
+    private String option;
 
     public Post(){
 
@@ -19,6 +20,16 @@ public class Post {
         this.description = description;
         this.username = username;
         this.date = date;
+
+    }
+
+    public Post(String title, String description, String username, String date, String option) {
+
+        this.title = title;
+        this.description = description;
+        this.username = username;
+        this.date = date;
+        this.option = option;
 
     }
 
@@ -54,6 +65,14 @@ public class Post {
         this.date = date;
     }
 
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
     @Override
     public boolean equals(Object o) {
 
@@ -67,6 +86,7 @@ public class Post {
         if (!description.equals(post.description)) return false;
         if (!username.equals(post.username)) return false;
         if (!date.equals(post.date)) return false;
+        if (!option.equals(post.option)) return false;
 
         return true;
     }
@@ -78,7 +98,7 @@ public class Post {
                 ", description='" + description + '\'' +
                 ", username='" + username + '\'' +
                 ", date='" + date + '\'' +
+                ", option='" + option + '\'' +
                 '}';
     }
-
 }

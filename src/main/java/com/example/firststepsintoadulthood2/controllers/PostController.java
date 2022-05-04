@@ -75,7 +75,6 @@ public class PostController extends ForumController{
         root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         Scene scene = new Scene(root, 300,200);
-        //scene.setFill(Color.RED);
 
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

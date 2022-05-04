@@ -21,6 +21,7 @@ public class PostService {
     private static final Path POSTS_PATH = getPathToFile("posts.json");
 
 
+
     public static void loadPostsFromFile() throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
