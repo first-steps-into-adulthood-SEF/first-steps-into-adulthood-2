@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -22,16 +23,17 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.EventObject;
 import java.util.Stack;
 
 
 public class LoginController {
 
-
     public TextField usernameField;
     public PasswordField passwordField;
     public Label loginMessage;
     protected static String keepUsername;
+
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
 
@@ -75,10 +77,14 @@ public class LoginController {
     @FXML
     public VBox verticalBox;
 
-    public EventHandler<ActionEvent> openPost(Post post){
-
-        return null;
-    }
+//    public EventHandler<ActionEvent> openPost(Post post) throws IOException {
+//        Parent root = FXMLLoader.load(Main.class.getResource("postPage.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//        return null;
+//    }
 
     @FXML
     public void initialize() {
@@ -97,7 +103,23 @@ public class LoginController {
 
     int i = 0, j = 0;
 
-    public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException{
+    @FXML
+    public Label postTitleInPage;
+    @FXML
+    public Label dateInPage;
+    @FXML
+    public Label descriptionInPage;
+    @FXML
+    public Button usernameInPage;
+
+    public void setPostProperties(Post post){
+        postTitleInPage.setText(post.getTitle());
+        usernameInPage.setText(post.getUsername());
+        dateInPage.setText(post.getDate());
+        descriptionInPage.setText(post.getDescription());
+    }
+
+    public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException, IOException {
 
         Pane postPane = new Pane();
 
@@ -106,7 +128,21 @@ public class LoginController {
 
         Button title = new Button(post.getTitle() + "\n*by " + post.getUsername() + ", " + post.getDate() + "     ");
         title.setTextAlignment(TextAlignment.LEFT);
-        title.setOnAction(openPost(post));
+        title.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent event){
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(Main.class.getResource("postPage.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                setPostProperties(post);
+            }
+        });
         title.setCursor(Cursor.HAND);
         title.setStyle("-fx-font-size:15 Calibri");
         title.setLayoutX(-300);
@@ -168,5 +204,12 @@ public class LoginController {
         }
     }
 
+    public void returnToForum(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
