@@ -279,6 +279,13 @@ public class LoginController {
         }
     }
 
+    public void displayOptions(){
+        AnchorPane root = new AnchorPane();
+        Button reportButton = new Button("Report user");
+        Button viewProfileButton = new Button("View user profile");
+        Button messageButton = new Button("Message user");
+    }
+
     public void returnToForum(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

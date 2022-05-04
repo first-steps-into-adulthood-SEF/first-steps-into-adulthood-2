@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -23,12 +24,21 @@
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button fx:id="usernameInPage" layoutX="111.0" layoutY="61.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#c526e0">
+      <Button fx:id="usernameInPage" layoutX="111.0" layoutY="61.0" mnemonicParsing="false" onAction="#displayOptions" style="-fx-background-color: transparent;" textFill="#c526e0">
          <font>
             <Font size="15.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button layoutX="53.0" layoutY="51.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="54.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="53.0" layoutY="51.0" mnemonicParsing="false" onAction="#displayOptions" prefHeight="51.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </Pane>
