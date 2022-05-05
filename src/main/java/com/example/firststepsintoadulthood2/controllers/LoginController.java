@@ -42,6 +42,7 @@ public class LoginController {
     public PasswordField passwordField;
     public Label loginMessage;
     protected static String keepUsername;
+    public VBox commentsInPage;
 
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
@@ -141,7 +142,6 @@ public class LoginController {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                setPostProperties(post);
             }
         });
         title.setCursor(Cursor.HAND);
@@ -305,6 +305,22 @@ public class LoginController {
         stage.setScene(scene);
         stage.setTitle("Options");
         stage.show();
+
+        reportButton.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent event){
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(Main.class.getResource("reportUser.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                postTitleInPage.setText("DA DA DA");
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+        });
     }
 
     public void returnToForum(ActionEvent event) throws IOException {
