@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.PostPageController">
    <children>
       <Label fx:id="postTitleInPage" layoutX="63.0" layoutY="138.0" style="-fx-background-color: #C8A2C8;">
          <font>
@@ -37,10 +37,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../default-avatar.png" />
-         </image>
+      <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@../../../default-avatar.png"/>
       </ImageView>
    </children>
 </Pane>

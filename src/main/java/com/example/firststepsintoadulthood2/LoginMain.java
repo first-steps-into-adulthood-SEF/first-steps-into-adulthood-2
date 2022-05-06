@@ -1,5 +1,6 @@
 package com.example.firststepsintoadulthood2;
 
+import com.example.firststepsintoadulthood2.controllers.PostPageController;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.application.Application;
@@ -15,6 +16,7 @@ public class LoginMain extends Application {
     public void start(Stage stage) throws IOException {
 
         UserService.loadUsersFromFile();
+        PostService.loadPostsFromFile();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 700);
@@ -23,7 +25,6 @@ public class LoginMain extends Application {
         stage.getIcons().add(img);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) {
