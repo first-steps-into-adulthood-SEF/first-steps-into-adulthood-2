@@ -13,10 +13,10 @@
             <Font name="Calibri Light" size="24.0" />
          </font>
       </Label>
-      <VBox fx:id="commentsInPage" layoutX="63.0" layoutY="411.0" prefHeight="198.0" prefWidth="674.0" style="-fx-border-color: C8A2C8;" />
+      <VBox fx:id="commentsInPage" layoutX="63.0" layoutY="381.0" prefHeight="170.0" prefWidth="674.0" style="-fx-border-color: C8A2C8;" />
       <Label fx:id="dateInPage" layoutX="547.0" layoutY="40.0" />
-      <Label fx:id="descriptionInPage" layoutX="63.0" layoutY="190.0" prefHeight="160.0" prefWidth="674.0" style="-fx-border-color: #C8A2C8;" />
-      <Label layoutX="63.0" layoutY="376.0" text="Comments:">
+      <Label fx:id="descriptionInPage" layoutX="63.0" layoutY="190.0" prefHeight="151.0" prefWidth="674.0" style="-fx-border-color: #C8A2C8;" />
+      <Label layoutX="63.0" layoutY="350.0" text="Comments:">
          <font>
             <Font size="14.0" />
          </font>
@@ -37,9 +37,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@../../../default-avatar.png"/>
+      <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../../default-avatar.png" />
       </ImageView>
+      <TextField fx:id="replyField" layoutX="63.0" layoutY="576.0" prefHeight="25.0" prefWidth="600.0" />
+      <Button fx:id="commentButton" layoutX="675.0" layoutY="574.0" mnemonicParsing="false" onAction="#addComment" prefHeight="28.0" prefWidth="62.0" text="Reply">
+         <font>
+            <Font name="Calibri Light" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>

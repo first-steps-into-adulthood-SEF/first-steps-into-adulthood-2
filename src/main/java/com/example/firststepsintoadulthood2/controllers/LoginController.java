@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.EventObject;
+import java.util.List;
 import java.util.Stack;
 
 import static com.example.firststepsintoadulthood2.services.ReportedPostsService.loadReportedPostsFromFile;
@@ -50,7 +51,7 @@ public class LoginController {
     public static String postAuthor;
     public static String postDescription;
     public static String postDate;
-    public static VBox postComments;
+    public static List<String> postComments;
 
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
@@ -134,6 +135,7 @@ public class LoginController {
                     postAuthor=post.getUsername();
                     postDate=post.getDate();
                     postDescription=post.getDescription();
+                    postComments=post.getReplies();
                     Parent root = FXMLLoader.load(Main.class.getResource("postPage.fxml"));
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);

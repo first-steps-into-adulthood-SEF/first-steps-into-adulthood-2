@@ -1,6 +1,8 @@
 package com.example.firststepsintoadulthood2.model;
 
 
+import java.util.*;
+
 public class Post {
 
     private String title;
@@ -8,9 +10,9 @@ public class Post {
     private String username;
     private String date;
     private String option;
+    public ArrayList<String> replies;
 
     public Post(){
-
 
     }
 
@@ -20,7 +22,7 @@ public class Post {
         this.description = description;
         this.username = username;
         this.date = date;
-
+        this.replies = new ArrayList<>();
     }
 
     public Post(String title, String description, String username, String date, String option) {
@@ -73,6 +75,8 @@ public class Post {
         this.option = option;
     }
 
+    public ArrayList<String> getReplies() { return replies;}
+
     @Override
     public boolean equals(Object o) {
 
@@ -89,6 +93,10 @@ public class Post {
         if (!option.equals(post.option)) return false;
 
         return true;
+    }
+
+    public void addReply(String replier, String reply){
+        this.replies.add(replier + " : " + reply);
     }
 
     @Override
