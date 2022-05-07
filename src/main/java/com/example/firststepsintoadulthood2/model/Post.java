@@ -16,6 +16,7 @@ public class Post {
 
     }
 
+
     public Post(String title, String description, String username, String date) {
 
         this.title = title;

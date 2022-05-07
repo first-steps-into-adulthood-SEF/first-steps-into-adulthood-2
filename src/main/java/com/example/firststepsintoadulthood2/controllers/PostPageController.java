@@ -51,7 +51,7 @@ public class PostPageController extends LoginController{
         stage.show();
     }
 
-    public void displayOptions(ActionEvent actionEvent) {
+    /*public void displayOptions(ActionEvent actionEvent) {
         AnchorPane root = new AnchorPane();
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");
@@ -78,21 +78,19 @@ public class PostPageController extends LoginController{
         stage.setTitle("Options");
         stage.show();
 
-        reportButton.setOnAction(new EventHandler<ActionEvent>(){
-            public void handle(ActionEvent event){
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(Main.class.getResource("reportUser.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+        reportButton.setOnAction(event -> {
+            Parent root1 = null;
+            try {
+                root1 = FXMLLoader.load(Main.class.getResource("reportUser.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root1);
+            stage1.setScene(scene1);
+            stage1.show();
         });
-    }
+    }*/
 
     public void addComment(ActionEvent actionEvent) {
         AnchorPane root = new AnchorPane();

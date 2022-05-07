@@ -6,17 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.PostPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.LoginController">
    <children>
       <Label fx:id="postTitleInPage" layoutX="63.0" layoutY="138.0" style="-fx-background-color: #C8A2C8;">
          <font>
             <Font name="Calibri Light" size="24.0" />
          </font>
       </Label>
-      <VBox fx:id="commentsInPage" layoutX="63.0" layoutY="381.0" prefHeight="170.0" prefWidth="674.0" style="-fx-border-color: C8A2C8;" />
-      <Label fx:id="dateInPage" layoutX="547.0" layoutY="40.0" />
-      <Label fx:id="descriptionInPage" layoutX="63.0" layoutY="190.0" prefHeight="151.0" prefWidth="674.0" style="-fx-border-color: #C8A2C8;" />
-      <Label layoutX="63.0" layoutY="350.0" text="Comments:">
+      <VBox fx:id="commentsInPage" layoutX="63.0" layoutY="411.0" prefHeight="198.0" prefWidth="674.0" style="-fx-border-color: C8A2C8;" />
+      <Label fx:id="descriptionInPage" layoutX="63.0" layoutY="125.0" prefHeight="225.0" prefWidth="674.0" style="-fx-border-color: #C8A2C8;" />
+      <Label layoutX="63.0" layoutY="376.0" text="Comments:">
          <font>
             <Font size="14.0" />
          </font>
@@ -38,16 +37,18 @@
          </cursor>
       </Button>
       <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../default-avatar.png" />
+         <image>
+            <Image url="@../../../default-avatar.png" />
+         </image>
       </ImageView>
-      <TextField fx:id="replyField" layoutX="63.0" layoutY="576.0" prefHeight="25.0" prefWidth="600.0" />
-      <Button fx:id="commentButton" layoutX="675.0" layoutY="574.0" mnemonicParsing="false" onAction="#addComment" prefHeight="28.0" prefWidth="62.0" text="Reply">
+      <Label layoutX="121.0" fx:id="postAuthorInPage" layoutY="44.0" prefHeight="27.0" prefWidth="619.0">
          <font>
-            <Font name="Calibri Light" size="15.0" />
+            <Font name="Calibri" size="23.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      </Label>
+      <Label layoutX="121.0" fx:id="postDetailsInPagePage" layoutY="83.0" prefHeight="17.0" prefWidth="153.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font></Label>
    </children>
 </Pane>

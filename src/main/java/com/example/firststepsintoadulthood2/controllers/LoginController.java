@@ -24,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
@@ -35,7 +36,6 @@ import java.util.List;
 import java.util.Stack;
 
 import static com.example.firststepsintoadulthood2.services.ReportedPostsService.loadReportedPostsFromFile;
-
 
 public class LoginController {
 
@@ -52,6 +52,22 @@ public class LoginController {
     public static String postDescription;
     public static String postDate;
     public static List<String> postComments;
+
+
+    @FXML
+    public Label postTitleInPage;
+    @FXML
+    public Label postDetailsInPage;
+    @FXML
+    public Label descriptionInPage;
+    @FXML
+    public Label postAuthorInPage;
+    @FXML
+    public Button usernameInPage;
+    @FXML
+    public Text usernameInProfile;
+    @FXML
+    public Label bioInProfile;
 
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
@@ -98,6 +114,21 @@ public class LoginController {
         try {
 
             fillWithPosts();
+            try{
+
+                usernameInProfile.setText("@" + postAuthor);
+                bioInProfile.setText("blablabla, pensii pensii");
+
+                postTitleInPage.setText(postTitle);
+                postDetailsInPage.setText("by " + postAuthor + ", " + postDate + "     ");
+                descriptionInPage.setText(postDescription);
+
+            }catch(NullPointerException e){
+
+                e.getMessage();
+
+            }
+
 
         } catch (IOException e) {
 
@@ -128,24 +159,23 @@ public class LoginController {
 
         Button title = new Button(post.getTitle() + "\n*by " + post.getUsername() + ", " + post.getDate() + "     ");
         title.setTextAlignment(TextAlignment.LEFT);
-        title.setOnAction(new EventHandler<ActionEvent>(){
-            public void handle(ActionEvent event){
-                try {
-                    postTitle=post.getTitle();
-                    postAuthor=post.getUsername();
-                    postDate=post.getDate();
-                    postDescription=post.getDescription();
-                    postComments=post.getReplies();
-                    Parent root = FXMLLoader.load(Main.class.getResource("postPage.fxml"));
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        title.setOnAction(event -> {
+            try {
+                postTitle=post.getTitle();
+                postAuthor=post.getUsername();
+                postDate=post.getDate();
+                postDescription=post.getDescription();
+                postComments=post.getReplies();
 
+                Parent root = FXMLLoader.load(Main.class.getResource("postPage.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
         });
         title.setCursor(Cursor.HAND);
         title.setStyle("-fx-font-size:15 Calibri");
@@ -261,5 +291,81 @@ public class LoginController {
 
 
     }
+
+
+
+    public void returnToForum(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+    public void displayOptions(ActionEvent actionEvent) {
+        AnchorPane root = new AnchorPane();
+        Button reportButton = new Button("Report user");
+        Button viewProfileButton = new Button("View user profile");
+        Button messageButton = new Button("Message user");
+        reportButton.setLayoutX(110);
+        reportButton.setLayoutY(30);
+        reportButton.setCursor(Cursor.HAND);
+        reportButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        viewProfileButton.setLayoutX(95);
+        viewProfileButton.setLayoutY(90);
+        viewProfileButton.setCursor(Cursor.HAND);
+        viewProfileButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        messageButton.setLayoutX(105);
+        messageButton.setLayoutY(150);
+        messageButton.setCursor(Cursor.HAND);
+        messageButton.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        root.getChildren().add(reportButton);
+        root.getChildren().add(viewProfileButton);
+        root.getChildren().add(messageButton);
+        Scene scene = new Scene(root, 300,200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Options");
+        stage.show();
+
+        reportButton.setOnAction(event -> {
+            Parent root1 = null;
+            try {
+                root1 = FXMLLoader.load(Main.class.getResource("reportUser.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root1);
+            stage1.setScene(scene1);
+            stage1.show();
+        });
+
+
+
+        viewProfileButton.setOnAction(event -> {
+
+            Parent root2 = null;
+            try {
+                root2 = FXMLLoader.load(Main.class.getResource("profile.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root2);
+            stage1.setScene(scene1);
+            stage1.show();
+
+        });
+
+
+    }
+
+
+
 
 }

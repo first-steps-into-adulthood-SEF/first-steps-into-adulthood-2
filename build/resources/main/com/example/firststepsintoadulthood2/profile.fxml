@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.PostController">
+    <children>
+        <ImageView fitHeight="148.0" fitWidth="206.0" layoutX="62.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../logo.png" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="-37.0" layoutY="162.0" prefHeight="627.0" prefWidth="874.0" style="-fx-background-color: #E6E6FA; -fx-background-radius: 100;">
+         <children>
+            <ImageView fitHeight="264.0" fitWidth="273.0" layoutX="52.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../default-avatar.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="usernameInProfile" layoutX="40.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.65232849121094">
+               <font>
+                  <Font name="Calibri" size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="361.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Short bio:" wrappingWidth="106.40000000000003">
+               <font>
+                  <Font name="Calibri" size="22.0" />
+               </font>
+            </Text>
+            <Label fx:id="bioInProfile" layoutX="361.0" layoutY="106.0" prefHeight="409.0" prefWidth="440.0" style="-fx-border-color: C8A2C8;" />
+         </children></AnchorPane>
+        <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
+            <font>
+                <Font name="Calibri Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="457.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../inbox.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="72.0" fitWidth="75.0" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../default-avatar.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPostCreationPage" style="-fx-background-color: C8A2C8;" text="Create post">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Text layoutX="421.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inbox" wrappingWidth="36.0">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+        <Button layoutX="587.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToForumPage" style="-fx-background-color: transparent;" text="Get back to forum page" textFill="#2200ff">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+    </children>
+</AnchorPane>
