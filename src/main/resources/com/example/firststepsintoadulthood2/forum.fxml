@@ -60,6 +60,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button layoutX="732.0" layoutY="42.0" mnemonicParsing="false" onAction="#viewPersonalProfile" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
    </children>
 </AnchorPane>

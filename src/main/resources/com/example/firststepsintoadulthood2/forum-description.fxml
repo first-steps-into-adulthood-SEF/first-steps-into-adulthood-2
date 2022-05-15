@@ -61,7 +61,7 @@
             </Text>
             <Line endX="56.199981689453125" layoutX="443.0" layoutY="482.0" startX="-100.0" stroke="RED" />
          </children></AnchorPane>
-        <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false"  onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
+        <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
             </font>
@@ -82,7 +82,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPostCreationPage"  style="-fx-background-color: C8A2C8;" text="Create post">
+        <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPostCreationPage" style="-fx-background-color: C8A2C8;" text="Create post">
             <font>
                 <Font name="Calibri Bold" size="20.0" />
             </font>
@@ -103,6 +103,11 @@
               <Cursor fx:constant="HAND" />
           </cursor>
       </Button>
+        <Button layoutX="732.0" layoutY="42.0" mnemonicParsing="false" onAction="#viewPersonalProfile" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+
 
     </children>
 </AnchorPane>

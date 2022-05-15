@@ -52,6 +52,7 @@ public class LoginController {
     public static String postDescription;
     public static String postDate;
     public static List<String> postComments;
+    public static int profileCheck;
 
 
     @FXML
@@ -91,6 +92,8 @@ public class LoginController {
 
     }
 
+
+
     @FXML
     protected void LoginButtonClick(ActionEvent event) throws IOException {
 
@@ -114,9 +117,20 @@ public class LoginController {
         try {
 
             fillWithPosts();
+
             try{
 
-                usernameInProfile.setText("@" + postAuthor);
+                if(profileCheck == 2){
+
+                    usernameInProfile.setText("@" + keepUsername);
+
+                }
+                else{
+
+                    usernameInProfile.setText("@" + postAuthor);
+
+                }
+
                 bioInProfile.setText("blablabla, pensii pensii");
 
                 postTitleInPage.setText(postTitle);
@@ -362,8 +376,22 @@ public class LoginController {
 
         });
 
+    }
+
+
+    public void viewPersonalProfile(ActionEvent event) throws IOException {
+
+        profileCheck = 2;
+        initialize();
+        Parent root = FXMLLoader.load(Main.class.getResource("personalProfile.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
+
+
 
 
 

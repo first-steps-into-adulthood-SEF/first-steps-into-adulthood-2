@@ -14,23 +14,24 @@
             </image>
         </ImageView>
         <AnchorPane layoutX="-37.0" layoutY="162.0" prefHeight="627.0" prefWidth="874.0" style="-fx-background-color: #E6E6FA; -fx-background-radius: 100;">
-         <children>
-            <TextField fx:id="titleField" layoutX="98.0" layoutY="41.0" prefHeight="26.0" prefWidth="622.0" promptText="Title">
-               <font>
-                  <Font name="Calibri" size="12.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="98.0" layoutY="94.0" prefHeight="296.0" prefWidth="622.0" promptText="Description" />
-            <Button fx:id="confirmationButton" layoutX="613.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleSaveChangesAction" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: C8A2C8;" text="Save changes">
-               <font>
-                  <Font name="Calibri" size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-        </AnchorPane>
+            <children>
+                <ImageView fitHeight="264.0" fitWidth="273.0" layoutX="52.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../default-avatar.png" />
+                    </image>
+                </ImageView>
+                <Text fx:id="usernameInProfile" layoutX="40.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.65232849121094">
+                    <font>
+                        <Font name="Calibri" size="28.0" />
+                    </font>
+                </Text>
+                <Text layoutX="361.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Short bio:" wrappingWidth="106.40000000000003">
+                    <font>
+                        <Font name="Calibri" size="22.0" />
+                    </font>
+                </Text>
+                <Label fx:id="bioInProfile" layoutX="361.0" layoutY="106.0" prefHeight="409.0" prefWidth="440.0" style="-fx-border-color: C8A2C8;" />
+            </children></AnchorPane>
         <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
@@ -73,11 +74,6 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="732.0" layoutY="42.0" mnemonicParsing="false" onAction="#viewPersonalProfile" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: transparent;">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-
 
     </children>
 </AnchorPane>
