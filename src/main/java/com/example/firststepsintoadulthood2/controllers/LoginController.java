@@ -71,6 +71,7 @@ public class LoginController {
     public Label bioInProfile;
 
 
+
     public void switchToRegisterPage(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(Main.class.getResource("register.fxml"));
@@ -130,6 +131,8 @@ public class LoginController {
                     usernameInProfile.setText("@" + postAuthor);
 
                 }
+
+                profileCheck = 0;
 
                 bioInProfile.setText("blablabla, pensii pensii");
 
