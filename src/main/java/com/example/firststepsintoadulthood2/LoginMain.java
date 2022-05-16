@@ -2,6 +2,7 @@ package com.example.firststepsintoadulthood2;
 
 import com.example.firststepsintoadulthood2.controllers.PostPageController;
 import com.example.firststepsintoadulthood2.services.PostService;
+import com.example.firststepsintoadulthood2.services.UserDescriptionsService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -31,6 +31,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.example.firststepsintoadulthood2.exceptions.UserAlreadyExistsException;
 import com.example.firststepsintoadulthood2.services.UserService;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;

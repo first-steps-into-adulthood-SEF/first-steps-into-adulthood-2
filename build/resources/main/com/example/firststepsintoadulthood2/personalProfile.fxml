@@ -15,12 +15,12 @@
         </ImageView>
         <AnchorPane layoutX="-37.0" layoutY="162.0" prefHeight="627.0" prefWidth="874.0" style="-fx-background-color: #E6E6FA; -fx-background-radius: 100;">
             <children>
-                <ImageView fitHeight="264.0" fitWidth="273.0" layoutX="52.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="profilePicture" fitHeight="264.0" fitWidth="273.0" layoutX="52.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../default-avatar.png" />
                     </image>
                 </ImageView>
-                <Text fx:id="usernameInProfile" layoutX="40.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.65232849121094">
+                <Text fx:id="usernameInProfile" layoutX="39.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.65232849121094">
                     <font>
                         <Font name="Calibri" size="28.0" />
                     </font>
@@ -31,6 +31,14 @@
                     </font>
                 </Text>
                 <Label fx:id="bioInProfile" layoutX="361.0" layoutY="106.0" prefHeight="409.0" prefWidth="440.0" style="-fx-border-color: C8A2C8;" />
+              <Button fx:id="editProfileButton" layoutX="133.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleEditProfile" style="-fx-background-color: C8A2C8;" text="Edit profile">
+                  <font>
+                      <Font name="Calibri" size="17.0" />
+                  </font>
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+              </Button>
             </children></AnchorPane>
         <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
             <font>

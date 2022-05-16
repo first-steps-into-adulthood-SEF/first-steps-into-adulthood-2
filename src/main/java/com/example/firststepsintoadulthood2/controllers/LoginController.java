@@ -27,14 +27,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.EventObject;
 import java.util.List;
 import java.util.Stack;
 
+
+import static com.example.firststepsintoadulthood2.controllers.NewProfileDescriptionController.keepUserBio;
 import static com.example.firststepsintoadulthood2.services.ReportedPostsService.loadReportedPostsFromFile;
 
 public class LoginController {
@@ -69,7 +74,12 @@ public class LoginController {
     public Text usernameInProfile;
     @FXML
     public Label bioInProfile;
+    @FXML
+    public Button editProfileButton;
+    @FXML
+    public ImageView profilePicture;
 
+    private File filePath;
 
 
     public void switchToRegisterPage(ActionEvent event) throws IOException {
@@ -134,7 +144,7 @@ public class LoginController {
 
                 profileCheck = 0;
 
-                bioInProfile.setText("blablabla, pensii pensii");
+                bioInProfile.setText("");
 
                 postTitleInPage.setText(postTitle);
                 postDetailsInPage.setText("by " + postAuthor + ", " + postDate + "     ");
@@ -396,7 +406,80 @@ public class LoginController {
 
 
 
+    public void handleEditProfile(){
+
+        AnchorPane root = new AnchorPane();
+        Button changeProfilePicture= new Button("Change profile picture");
+        Button changeBio= new Button("Change bio");
+
+        changeProfilePicture.setLayoutX(80);
+        changeProfilePicture.setLayoutY(50);
+        changeProfilePicture.setCursor(Cursor.HAND);
+        changeProfilePicture.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        changeBio.setLayoutX(110);
+        changeBio.setLayoutY(110);
+        changeBio.setCursor(Cursor.HAND);
+        changeBio.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        root.getChildren().add(changeProfilePicture);
+        root.getChildren().add(changeBio);
+
+        Scene scene = new Scene(root, 300,200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Options");
+        stage.show();
 
 
+
+
+        changeProfilePicture.setOnAction(event -> {
+
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open image");
+
+            this.filePath = fileChooser.showOpenDialog(stage1);
+
+            try{
+
+                Image img = new Image( "file:///" + filePath);
+
+                profilePicture.setImage(img);
+
+            }catch(Exception e){
+
+                System.out.println(e.getMessage());
+
+            }
+
+        });
+
+
+        changeBio.setOnAction(event -> {
+
+            Parent root2 = null;
+            try {
+                root2 = FXMLLoader.load(Main.class.getResource("new-description.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root2);
+            stage1.setScene(scene1);
+            stage1.show();
+
+
+            NewProfileDescriptionController n = new NewProfileDescriptionController();
+
+            System.out.println(keepUserBio);
+            bioInProfile.setText(keepUserBio);
+
+        });
+
+    }
 
 }

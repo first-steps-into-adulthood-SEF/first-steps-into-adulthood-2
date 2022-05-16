@@ -1,10 +1,18 @@
 package com.example.firststepsintoadulthood2.model;
 
+
 public class User {
 
-    private String fullName, birthday, username, password, option, description;
+    private String fullName, birthday, username, password, option, description, profileDescription;
 
     public User() {
+
+    }
+
+    public User(String username, String profileDescription){
+
+        this.username = username;
+        this.profileDescription = profileDescription;
 
     }
 
@@ -24,6 +32,8 @@ public class User {
         this.description = description;
 
     }
+
+
 
     public String getFullName() {
 
@@ -73,6 +83,23 @@ public class User {
 
     }
 
+    public void setProfileDescription(String newDescription){
+
+        this.profileDescription = newDescription;
+
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public String getProfileDescription() {
+        return profileDescription;
+    }
 
     @Override
     public boolean equals(Object o) {

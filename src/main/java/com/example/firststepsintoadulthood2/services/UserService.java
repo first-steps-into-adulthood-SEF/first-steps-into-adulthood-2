@@ -8,6 +8,7 @@ import com.example.firststepsintoadulthood2.exceptions.UserAlreadyExistsExceptio
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.image.Image;
 import org.apache.commons.io.FileUtils;
 
 import javax.crypto.BadPaddingException;

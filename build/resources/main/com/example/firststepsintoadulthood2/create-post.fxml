@@ -44,7 +44,7 @@
                 <Image url="@../../../inbox.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="72.0" fitWidth="75.0" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="72.0" fx:id="profilePicture" fitWidth="75.0" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../default-avatar.png" />
             </image>
