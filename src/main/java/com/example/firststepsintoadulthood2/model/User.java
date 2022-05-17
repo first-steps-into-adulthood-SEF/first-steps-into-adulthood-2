@@ -3,18 +3,12 @@ package com.example.firststepsintoadulthood2.model;
 
 public class User {
 
-    private String fullName, birthday, username, password, option, description, profileDescription;
+    private String fullName, birthday, username, password, option, description, profileDescription,imagePath;
 
     public User() {
 
     }
 
-    public User(String username, String profileDescription){
-
-        this.username = username;
-        this.profileDescription = profileDescription;
-
-    }
 
     public User(String fullName, String birthday, String username, String password) {
 
@@ -33,7 +27,23 @@ public class User {
 
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getFullName() {
 

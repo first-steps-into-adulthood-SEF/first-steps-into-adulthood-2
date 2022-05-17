@@ -20,7 +20,7 @@
                         <Image url="@../../../default-avatar.png" />
                     </image>
                 </ImageView>
-                <Text fx:id="usernameInProfile" layoutX="39.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.65232849121094">
+                <Text fx:id="usernameInProfile" layoutX="40.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dummy text" textAlignment="CENTER" wrappingWidth="287.65232849121094">
                     <font>
                         <Font name="Calibri" size="28.0" />
                     </font>
@@ -53,7 +53,7 @@
                 <Image url="@../../../inbox.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="72.0" fitWidth="75.0" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="profilePicture2" fitHeight="72.0" fitWidth="75.0" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../default-avatar.png" />
             </image>

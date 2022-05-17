@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -30,6 +31,7 @@ import static com.example.firststepsintoadulthood2.services.PostService.loadPost
 public class PostController extends ForumController{
 
     public static TextArea textArea = new TextArea();
+
 
     @FXML
     private Button confirmationButton;

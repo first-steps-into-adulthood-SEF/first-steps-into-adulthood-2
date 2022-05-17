@@ -3,6 +3,7 @@ package com.example.firststepsintoadulthood2.controllers;
 import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
+import com.example.firststepsintoadulthood2.model.User;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.ReportedPostsService;
 import com.example.firststepsintoadulthood2.services.UserService;
@@ -39,7 +40,6 @@ import java.util.List;
 import java.util.Stack;
 
 
-import static com.example.firststepsintoadulthood2.controllers.NewProfileDescriptionController.keepUserBio;
 import static com.example.firststepsintoadulthood2.services.ReportedPostsService.loadReportedPostsFromFile;
 
 public class LoginController {
@@ -78,6 +78,8 @@ public class LoginController {
     public Button editProfileButton;
     @FXML
     public ImageView profilePicture;
+    @FXML
+    public ImageView profilePicture2;
 
     private File filePath;
 
@@ -94,7 +96,6 @@ public class LoginController {
 
     public void switchToForumPage(ActionEvent event) throws IOException{
 
-        initialize();
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -115,7 +116,6 @@ public class LoginController {
             loginMessage.setText("Incorrect password!");
         }
         else{
-
             keepUsername = usernameField.getText();
             switchToForumPage(event);
         }
@@ -130,19 +130,18 @@ public class LoginController {
             fillWithPosts();
 
             try{
-
                 if(profileCheck == 2){
 
+                    profileCheck = 0;
                     usernameInProfile.setText("@" + keepUsername);
 
                 }
                 else{
+                    profileCheck = 0;
 
                     usernameInProfile.setText("@" + postAuthor);
 
                 }
-
-                profileCheck = 0;
 
                 bioInProfile.setText("");
 
@@ -150,16 +149,46 @@ public class LoginController {
                 postDetailsInPage.setText("by " + postAuthor + ", " + postDate + "     ");
                 descriptionInPage.setText(postDescription);
 
+
             }catch(NullPointerException e){
 
-                e.getMessage();
+                //e.getMessage();
+
+            }
+
+            User user = UserService.getUser(keepUsername);
+
+            if(user != null){
+
+                String imgP = user.getImagePath();
+                if(profilePicture != null){
+
+                    profilePicture.setImage(new Image("file:///"+imgP));
+
+                }
+
+                if(profilePicture2 != null){
+
+                    profilePicture2.setImage(new Image("file:///"+imgP));
+
+                }
+
+
+
+                String bio = user.getProfileDescription();
+                if(bioInProfile != null){
+
+                    bioInProfile.setText(bio);
+
+                }
 
             }
 
 
+
         } catch (IOException e) {
 
-            e.printStackTrace();
+            //e.printStackTrace();
 
         }
 
@@ -177,7 +206,7 @@ public class LoginController {
         }
     }
 
-    public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException, IOException {
+    public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException {
 
         Pane postPane = new Pane();
 
@@ -200,7 +229,7 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
 
         });
@@ -237,7 +266,7 @@ public class LoginController {
             try {
                 selectReason(post.getTitle(), post.getDescription(), post.getUsername(), post.getDate());
             } catch (IOException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
             }
         });
 
@@ -251,7 +280,7 @@ public class LoginController {
 
         }catch(NullPointerException e){
 
-            e.printStackTrace();
+            //e.printStackTrace();
 
         }
 
@@ -309,7 +338,7 @@ public class LoginController {
 
             } catch (CouldNotWritePostsException ex) {
 
-                System.out.println(ex.getMessage());
+                ex.getMessage();
 
             }
 
@@ -363,7 +392,7 @@ public class LoginController {
             try {
                 root1 = FXMLLoader.load(Main.class.getResource("reportUser.fxml"));
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene1 = new Scene(root1);
@@ -379,7 +408,7 @@ public class LoginController {
             try {
                 root2 = FXMLLoader.load(Main.class.getResource("profile.fxml"));
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
 
             Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -395,7 +424,7 @@ public class LoginController {
     public void viewPersonalProfile(ActionEvent event) throws IOException {
 
         profileCheck = 2;
-        initialize();
+
         Parent root = FXMLLoader.load(Main.class.getResource("personalProfile.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -448,10 +477,11 @@ public class LoginController {
                 Image img = new Image( "file:///" + filePath);
 
                 profilePicture.setImage(img);
+                UserService.changePfp(keepUsername, filePath.getPath());
 
             }catch(Exception e){
 
-                System.out.println(e.getMessage());
+                //System.out.println(e.getMessage());
 
             }
 
@@ -464,7 +494,7 @@ public class LoginController {
             try {
                 root2 = FXMLLoader.load(Main.class.getResource("new-description.fxml"));
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
 
             Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -472,11 +502,16 @@ public class LoginController {
             stage1.setScene(scene1);
             stage1.show();
 
-
             NewProfileDescriptionController n = new NewProfileDescriptionController();
 
-            System.out.println(keepUserBio);
-            bioInProfile.setText(keepUserBio);
+            try{
+
+                bioInProfile.setText(n.getProfileBio());
+
+            }catch(NullPointerException ignored){
+
+
+            }
 
         });
 

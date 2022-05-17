@@ -19,14 +19,17 @@ public class NewProfileDescriptionController{
     @FXML
     public TextField profileDescription;
 
-    public static String keepUserBio;
-
 
     public void handleDescriptionChanges() throws IOException, CouldNotWriteUsersException {
 
-        UserDescriptionsService.loadUserDescriptionsFromFile();
-        keepUserBio = profileDescription.getText();
-        UserDescriptionsService.addUser(keepUsername, profileDescription.getText());
+        UserService.changeBio(keepUsername, profileDescription.getText());
+
+    }
+
+
+    public String getProfileBio(){
+
+        return profileDescription.getText();
 
     }
 

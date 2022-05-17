@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import org.apache.commons.io.FileUtils;
 
 import javax.crypto.BadPaddingException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -164,6 +165,66 @@ public class UserService {
 
         return md;
 
+    }
+
+
+    public static void changePfp(String usrnaname, String filePath) {
+
+        for (User u : users) {
+
+            if (u.getUsername().equals(usrnaname)) {
+
+                u.setImagePath(filePath);
+
+                try {
+
+                    persistUsers();
+                }
+                catch (CouldNotWriteUsersException e) {
+
+                    e.printStackTrace();
+
+                }
+                return;
+            }
+        }
+    }
+
+
+    public static void changeBio(String usernname, String bio) {
+
+        for (User u : users) {
+
+            if (u.getUsername().equals(usernname)) {
+
+                u.setProfileDescription(bio);
+
+                try {
+
+                    persistUsers();
+
+                } catch (CouldNotWriteUsersException e) {
+
+                    e.printStackTrace();
+
+                }
+                return;
+            }
+        }
+    }
+
+
+
+    public static User getUser(String keepUsername) {
+
+        for(User u : users){
+
+            if(u.getUsername().equals(keepUsername))
+                return u;
+
+        }
+
+        return null;
     }
 
 
