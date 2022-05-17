@@ -10,7 +10,7 @@ public class Post {
     private String username;
     private String date;
     private String option;
-    public ArrayList<String> replies;
+    public ArrayList<String> replies = new ArrayList<>();
 
     public Post(){
 
@@ -23,7 +23,6 @@ public class Post {
         this.description = description;
         this.username = username;
         this.date = date;
-        this.replies = new ArrayList<>();
     }
 
     public Post(String title, String description, String username, String date, String option) {

@@ -1,11 +1,11 @@
 package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
-import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -13,26 +13,51 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class PostPageController extends LoginController{
 
     public Label postTitleInPage;
     public Button usernameInPage;
     public Label descriptionInPage;
-    public VBox commentsInPage;
     public Label dateInPage;
     public TextField replyField;
     public Button commentButton;
+    public VBox repliesVBox;
+
+    public Label createReplyBody(String reply){
+        Label replyBody = new Label(reply);
+        replyBody.setBackground(new Background(new BackgroundFill(Color.rgb(200, 162, 200), CornerRadii.EMPTY, Insets.EMPTY)));
+        replyBody.setFont(new Font("Cambria", 15));
+        return replyBody;
+    }
+
+    public void showReplies(){
+        repliesVBox.setSpacing(8);
+        Post targetPost = null;
+        Stack<Post> postList = PostService.getPostList();
+        for(Post p : postList){
+            if(p.getTitle().equals(postTitleInPage.getText())){
+                targetPost = p;
+            }
+        }
+        if (targetPost != null) {
+            for(String reply : targetPost.getReplies()){
+                repliesVBox.getChildren().add(createReplyBody(reply));
+            }
+        }
+    }
 
     @FXML
     public void initialize(){
@@ -40,7 +65,7 @@ public class PostPageController extends LoginController{
         dateInPage.setText(postDate);
         usernameInPage.setText(postAuthor);
         descriptionInPage.setText(postDescription);
-        //commentsInPage.getChildren().add((Node) postComments);
+        showReplies();
     }
 
     public void returnToForum(ActionEvent actionEvent) throws IOException {
@@ -94,22 +119,22 @@ public class PostPageController extends LoginController{
 
     public void addComment(ActionEvent actionEvent) {
         AnchorPane root = new AnchorPane();
-        Button yes = new Button("Post reply");
-        Button no = new Button("Discard");
+        Button postReply = new Button("Post reply");
+        Button discard = new Button("Discard");
         Text text = new Text("Do you want to reply to this?");
 
-        yes.setLayoutX(90);
-        yes.setLayoutY(130);
-        yes.setCursor(Cursor.HAND);
-        yes.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
-        no.setLayoutX(170);
-        no.setLayoutY(130);
-        no.setCursor(Cursor.HAND);
-        no.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        postReply.setLayoutX(90);
+        postReply.setLayoutY(130);
+        postReply.setCursor(Cursor.HAND);
+        postReply.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+        discard.setLayoutX(170);
+        discard.setLayoutY(130);
+        discard.setCursor(Cursor.HAND);
+        discard.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
         text.setLayoutX(80);
         text.setLayoutY(100);
-        root.getChildren().add(yes);
-        root.getChildren().add(no);
+        root.getChildren().add(postReply);
+        root.getChildren().add(discard);
         root.getChildren().add(text);
         root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
@@ -122,17 +147,16 @@ public class PostPageController extends LoginController{
         stage.show();
 
 
-        yes.setOnMousePressed(e->{
+        postReply.setOnMousePressed(e->{
 
             try {
 
                 String replier = keepUsername;
                 String reply = replyField.getText();
-                int postNumber = PostService.getPostList().search(postTitleInPage) + 1;
-                Post post = PostService.getPostList().get(postNumber);
-                for(Post p : PostService.getPostList()){
-                    if(p.equals(post)){
-                        p.addReply(replier, reply);
+                Stack<Post> postList = PostService.getPostList();
+                for(Post p : postList){
+                    if(p.getTitle().equals(postTitleInPage.getText())){
+                        p.setTitle("prank");
                     }
                 }
 
@@ -145,10 +169,9 @@ public class PostPageController extends LoginController{
             stage.close();
         });
 
-        no.setOnMousePressed(e->{
-
+        discard.setOnMousePressed(e->{
+            replyField.setText("");
             stage.close();
-
         });
     }
 
