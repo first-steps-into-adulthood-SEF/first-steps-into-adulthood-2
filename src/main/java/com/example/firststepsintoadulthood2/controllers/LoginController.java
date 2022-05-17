@@ -37,6 +37,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.EventObject;
 import java.util.List;
+import java.util.Objects;
 import java.util.Stack;
 
 
@@ -413,6 +414,22 @@ public class LoginController {
 
             Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene1 = new Scene(root2);
+            stage1.setScene(scene1);
+            stage1.show();
+
+        });
+
+        messageButton.setOnAction(event -> {
+
+            Parent root3 = null;
+            try {
+                root3 = FXMLLoader.load(Main.class.getResource("chat.fxml"));
+            } catch (IOException e) {
+                //e.printStackTrace();
+            }
+
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root3);
             stage1.setScene(scene1);
             stage1.show();
 
