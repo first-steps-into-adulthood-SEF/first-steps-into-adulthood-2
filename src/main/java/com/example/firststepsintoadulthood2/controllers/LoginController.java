@@ -4,6 +4,7 @@ import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
+import com.example.firststepsintoadulthood2.services.ChatService;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.ReportedPostsService;
 import com.example.firststepsintoadulthood2.services.UserService;
@@ -361,7 +362,7 @@ public class LoginController {
 
 
 
-    public void displayOptions(ActionEvent actionEvent) {
+    public void displayOptions(ActionEvent actionEvent) throws IOException {
         AnchorPane root = new AnchorPane();
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");

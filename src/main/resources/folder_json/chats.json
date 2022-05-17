@@ -1,1 +1,9 @@
-[]
+[ {
+  "source" : "alexa.funi",
+  "destination" : "mali.admin",
+  "messages" : [ "hello" ]
+}, {
+  "source" : "alexa.funi",
+  "destination" : "mali.admin",
+  "messages" : [ "hey" ]
+} ]
