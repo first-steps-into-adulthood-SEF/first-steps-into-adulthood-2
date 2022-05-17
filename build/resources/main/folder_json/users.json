@@ -2,20 +2,36 @@
   "fullName" : "Valentin Nistoran",
   "birthday" : "11.01.2002",
   "username" : "vali.admin",
-  "password" : "=X7�/��L�X��\u0007/a�����Ș�`d���$�\u001A��Ћ�\u001AsV�\nN\u0019�c\u001B�Z�6t \u0002$e6�)�x"
+  "password" : "=X7�/��L�X��\u0007/a�����Ș�`d���$�\u001A��Ћ�\u001AsV�\nN\u0019�c\u001B�Z�6t \u0002$e6�)�x",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null
 }, {
   "fullName" : "Mălina Pavel",
   "birthday" : "30.06.2001",
   "username" : "mali.admin",
-  "password" : "N�H�'I�/1��(�\u0017Du�J�\u0000\\���ɨқKyB�AU��r\u0019��\\T��\u000E��#��7�6��\u000F!��U"
+  "password" : "N�H�'I�/1��(�\u0017Du�J�\u0000\\���ɨқKyB�AU��r\u0019��\\T��\u000E��#��7�6��\u000F!��U",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null
 }, {
   "fullName" : "Oana .",
   "birthday" : "23.04.2000",
   "username" : "oana.fara.i",
-  "password" : "؛�������M�\u0002%\u0010b�������ѓW���9Y�\u001BJ�\u0019����h�\u0006ʳ��9���\b��Q6\u000F��R,/4k"
+  "password" : "؛�������M�\u0002%\u0010b�������ѓW���9Y�\u001BJ�\u0019����h�\u0006ʳ��9���\b��Q6\u000F��R,/4k",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null
 }, {
   "fullName" : "Alexa",
   "birthday" : "24.04.1999",
   "username" : "alexa.funi",
-  "password" : "��\u0013�+Rt���ҍ\u001C�P����K\u0010\u0018�^\u0001�e��q3��\\+�LL\u0006\u000F\u0015�A�N(\u001A\n4)\u001D�qˤ��#㺺\u0007"
+  "password" : "��\u0013�+Rt���ҍ\u001C�P����K\u0010\u0018�^\u0001�e��q3��\\+�LL\u0006\u000F\u0015�A�N(\u001A\n4)\u001D�qˤ��#㺺\u0007",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : "f",
+  "imagePath" : "C:\\Users\\Laura\\Documents\\shit&giggles\\6cro0q.jpg"
 } ]

@@ -1,12 +1,14 @@
 package com.example.firststepsintoadulthood2.model;
 
+
 public class User {
 
-    private String fullName, birthday, username, password, option, description;
+    private String fullName, birthday, username, password, option, description, profileDescription,imagePath;
 
     public User() {
 
     }
+
 
     public User(String fullName, String birthday, String username, String password) {
 
@@ -23,6 +25,24 @@ public class User {
         this.option = option;
         this.description = description;
 
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getFullName() {
@@ -73,6 +93,23 @@ public class User {
 
     }
 
+    public void setProfileDescription(String newDescription){
+
+        this.profileDescription = newDescription;
+
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public String getProfileDescription() {
+        return profileDescription;
+    }
 
     @Override
     public boolean equals(Object o) {
