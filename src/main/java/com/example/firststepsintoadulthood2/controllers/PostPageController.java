@@ -3,6 +3,7 @@ package com.example.firststepsintoadulthood2.controllers;
 import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,9 +23,21 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Stack;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import static com.example.firststepsintoadulthood2.services.FileSystemService.getPathToFile;
 
 public class PostPageController extends LoginController{
 
@@ -148,25 +161,15 @@ public class PostPageController extends LoginController{
 
 
         postReply.setOnMousePressed(e->{
-
-            try {
-
-                String replier = keepUsername;
-                String reply = replyField.getText();
-                Stack<Post> postList = PostService.getPostList();
-                for(Post p : postList){
-                    if(p.getTitle().equals(postTitleInPage.getText())){
-                        p.setTitle("prank");
-                    }
+            if(!Objects.equals(replyField.getText(), "")) {
+                try {
+                    PostService.addReplyToPost(postTitleInPage.getText(), usernameInPage.getText(), keepUsername, replyField.getText());
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
                 }
-
-            } catch (Exception ex) {
-
-                System.out.println(ex.getMessage());
-
+                replyField.setText("");
+                stage.close();
             }
-
-            stage.close();
         });
 
         discard.setOnMousePressed(e->{

@@ -45,6 +45,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0'
     implementation group: 'org.bedework.deploy', name: 'bw-wfmodules-com-fasterxml-jackson-core-databind', version: '1.0.4'
+    implementation 'org.json:json:20211205'
 }
 
 test {

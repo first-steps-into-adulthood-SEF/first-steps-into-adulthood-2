@@ -95,10 +95,6 @@ public class Post {
         return true;
     }
 
-    public void addReply(String replier, String reply){
-        this.replies.add(replier + " : " + reply);
-    }
-
     @Override
     public String toString() {
         return "Post{" +
