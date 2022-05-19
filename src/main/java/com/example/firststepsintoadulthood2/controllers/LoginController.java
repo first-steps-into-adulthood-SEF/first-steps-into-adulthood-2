@@ -6,6 +6,7 @@ import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.ReportedPostsService;
+import com.example.firststepsintoadulthood2.services.ReportedUsersService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -361,6 +362,8 @@ public class LoginController {
 
 
     public void displayOptions(ActionEvent actionEvent) {
+        Button buton = (Button) actionEvent.getSource();
+        ReportedUsersService.rememberUser = buton.getText();
         AnchorPane root = new AnchorPane();
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");

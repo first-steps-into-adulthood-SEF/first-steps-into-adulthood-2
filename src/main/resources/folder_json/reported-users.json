@@ -1,3 +1,13 @@
-[
-
-]
+[ {
+  "fullName" : null,
+  "birthday" : null,
+  "username" : "alexa.funi",
+  "password" : null,
+  "option" : "[bad language, theme not respected, stolen identity]",
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : "vali.admin",
+  "reportDescription" : "bye bye bby",
+  "reportCheck" : 1
+} ]
