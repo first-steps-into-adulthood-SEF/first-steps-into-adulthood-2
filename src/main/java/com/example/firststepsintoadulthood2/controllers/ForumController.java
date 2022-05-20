@@ -14,8 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
@@ -26,6 +28,13 @@ import java.util.Stack;
 
 public class ForumController extends LoginController{
 
+    public void switchToInboxPage(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("inbox.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void switchToForumDescriptionPage(ActionEvent event) throws IOException {
 
@@ -47,17 +56,6 @@ public class ForumController extends LoginController{
         stage.show();
 
     }
-
-    /*public void switchToForumPage(ActionEvent event) throws IOException{
-
-        initialize();
-        Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }*/
 
 
 }
