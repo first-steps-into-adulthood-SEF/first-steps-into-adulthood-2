@@ -4,10 +4,7 @@ import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
-import com.example.firststepsintoadulthood2.services.PostService;
-import com.example.firststepsintoadulthood2.services.ReportedPostsService;
-import com.example.firststepsintoadulthood2.services.ReportedUsersService;
-import com.example.firststepsintoadulthood2.services.UserService;
+import com.example.firststepsintoadulthood2.services.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -52,7 +49,7 @@ public class LoginController {
 
     public VBox verticalBox;
     int i = 0, j = 0;
-
+    public Button banButton;
     public static String postTitle;
     public static String postAuthor;
     public static String postDescription;
@@ -127,7 +124,6 @@ public class LoginController {
     public void initialize() {
 
         try {
-
             fillWithPosts();
 
             try{
@@ -141,6 +137,10 @@ public class LoginController {
                     profileCheck = 0;
 
                     usernameInProfile.setText("@" + postAuthor);
+                    User user = UserService.getUser(keepUsername);
+                    if(user!=null && user.getIsAdmin() == 1){
+                        banButton.setDisable(false);
+                    }
 
                 }
 

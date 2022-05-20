@@ -6,7 +6,8 @@
   "option" : null,
   "description" : null,
   "profileDescription" : null,
-  "imagePath" : null
+  "imagePath" : null,
+  "isAdmin" : 1
 }, {
   "fullName" : "Mălina Pavel",
   "birthday" : "30.06.2001",
@@ -15,7 +16,8 @@
   "option" : null,
   "description" : null,
   "profileDescription" : null,
-  "imagePath" : null
+  "imagePath" : null,
+  "isAdmin" : 1
 }, {
   "fullName" : "Oana .",
   "birthday" : "23.04.2000",
