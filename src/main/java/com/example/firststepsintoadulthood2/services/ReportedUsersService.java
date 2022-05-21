@@ -1,6 +1,6 @@
 package com.example.firststepsintoadulthood2.services;
 
-import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
+import com.example.firststepsintoadulthood2.exceptions.CouldNotWriteUsersException;
 import com.example.firststepsintoadulthood2.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +18,7 @@ public class ReportedUsersService {
 
     private static Stack<User> reportedUsers;
     private static final Path REPORTED_USERS_PATH = getPathToFile("reported-users.json");
+    public static String rememberUser;
 
 
     public static void loadReportedUsersFromFile() throws IOException {
@@ -36,16 +37,16 @@ public class ReportedUsersService {
     }
 
 
-    public static void addReportedUsers(String username, String option, String description) throws CouldNotWritePostsException {
+    public static void addReportedUsers(String username, String reportedUser, String option, String description) throws CouldNotWriteUsersException {
 
-        reportedUsers.push(new User(username, option, description));
-        persistReportedPosts();
+        reportedUsers.push(new User(1, reportedUser, username, option, description));
+        persistReportedUsers();
 
     }
 
 
 
-    private static void persistReportedPosts() throws CouldNotWritePostsException {
+    private static void persistReportedUsers() throws CouldNotWriteUsersException {
         try {
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -53,7 +54,7 @@ public class ReportedUsersService {
 
         } catch (IOException e) {
 
-            throw new CouldNotWritePostsException();
+            throw new CouldNotWriteUsersException();
 
         }
     }

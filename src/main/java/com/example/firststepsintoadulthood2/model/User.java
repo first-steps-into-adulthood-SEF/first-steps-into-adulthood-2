@@ -4,7 +4,8 @@ package com.example.firststepsintoadulthood2.model;
 public class User {
 
     private String fullName, birthday, username, password, option, description, profileDescription,imagePath;
-
+    private String reporter, reportDescription;
+    private int reportCheck;
     public User() {
 
     }
@@ -16,15 +17,14 @@ public class User {
         this.birthday = birthday;
         this.username = username;
         this.password = password;
-
     }
 
-    public User(String username, String option, String description) {
-
+    public User(int reportCheck, String username, String reporter, String option, String reportDescription){
+        this.reportCheck = reportCheck;
         this.username = username;
+        this.reporter = reporter;
         this.option = option;
-        this.description = description;
-
+        this.reportDescription = reportDescription;
     }
 
     public String getImagePath() {
@@ -150,4 +150,27 @@ public class User {
 
     }
 
+    public String getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
+    }
+
+    public String getReportDescription() {
+        return reportDescription;
+    }
+
+    public void setReportDescription(String reportDescription) {
+        this.reportDescription = reportDescription;
+    }
+
+    public int getReportCheck() {
+        return reportCheck;
+    }
+
+    public void setReportCheck(int reportCheck) {
+        this.reportCheck = reportCheck;
+    }
 }
