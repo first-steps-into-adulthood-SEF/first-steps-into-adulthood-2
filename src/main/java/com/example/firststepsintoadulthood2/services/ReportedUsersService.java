@@ -58,4 +58,9 @@ public class ReportedUsersService {
 
         }
     }
+
+    public static void sendReportToAdmins(String reporter, String reportedUser, String reportMotive, String reportDescription) {
+        String notification = reporter + " reported " + reportedUser + ". Motive:" + reportMotive + ". Description:" + reportDescription;
+        //Send notification to admins
+    }
 }
