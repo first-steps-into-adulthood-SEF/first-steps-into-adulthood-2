@@ -7,7 +7,10 @@
   "description" : null,
   "profileDescription" : null,
   "imagePath" : null,
-  "isAdmin" : 1
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 1,
+  "reportCheck" : 0
 }, {
   "fullName" : "Mălina Pavel",
   "birthday" : "30.06.2001",
@@ -17,7 +20,10 @@
   "description" : null,
   "profileDescription" : null,
   "imagePath" : null,
-  "isAdmin" : 1
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 1,
+  "reportCheck" : 0
 }, {
   "fullName" : "Oana .",
   "birthday" : "23.04.2000",
@@ -26,7 +32,11 @@
   "option" : null,
   "description" : null,
   "profileDescription" : null,
-  "imagePath" : null
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
 }, {
   "fullName" : "Alexa",
   "birthday" : "24.04.1999",
@@ -35,5 +45,22 @@
   "option" : null,
   "description" : null,
   "profileDescription" : "press F",
-  "imagePath" : "C:\\Users\\Laura\\Documents\\shit&giggles\\6cro0q.jpg"
+  "imagePath" : "C:\\Users\\Laura\\Documents\\shit&giggles\\6cro0q.jpg",
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
+}, {
+  "fullName" : "Dula Peep",
+  "birthday" : "1.01.2001",
+  "username" : "yogirldula",
+  "password" : "!\u001F9��ը��S�ԭ\\xQ|K�stG%�\u001E�׺˚ql�W��.\u0010�T��͈\u0003�[Z���g�Ims\u0002h�\u001C�:",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
 } ]

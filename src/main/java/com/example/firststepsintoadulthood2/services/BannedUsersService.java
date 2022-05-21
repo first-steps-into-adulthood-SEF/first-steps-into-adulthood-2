@@ -2,6 +2,7 @@ package com.example.firststepsintoadulthood2.services;
 
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWriteUsersException;
 import com.example.firststepsintoadulthood2.model.BannedUser;
+import com.example.firststepsintoadulthood2.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -9,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Date;
 import java.util.Objects;
 import java.util.Stack;
 
@@ -42,5 +44,32 @@ public class BannedUsersService {
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
+    }
+
+    public static long checkBanned(String username) throws IOException {
+        loadBannedUsersFromFile();
+        long remainingTime = 0;
+        for(BannedUser b : bannedUsers){
+            if(b.getUsername().equals(username) && b.getBanDate()!=0){
+                long currentTime = System.currentTimeMillis();
+                if(currentTime - b.getBanDate() < (long) b.getBanPeriod() * 86400000){
+                    remainingTime = (long) b.getBanPeriod() * 86400000 - (currentTime - b.getBanDate());
+                }
+                if(remainingTime < 0){
+                    b.setBanPeriod(0);
+                }
+            }
+        }
+        return remainingTime;
+    }
+
+    public static String getBanDescription(String username){
+        String description = null;
+        for(BannedUser b : bannedUsers){
+            if(b.getUsername().equals(username) && b.getBanDate()!=0){
+                description = b.getBanMessage();
+            }
+        }
+        return description;
     }
 }

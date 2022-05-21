@@ -7,6 +7,7 @@ module com.example.firststepsintoadulthood2 {
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires org.json;
+    requires java.sql;
     //requires commons.validator;
 
     opens com.example.firststepsintoadulthood2 to javafx.fxml;

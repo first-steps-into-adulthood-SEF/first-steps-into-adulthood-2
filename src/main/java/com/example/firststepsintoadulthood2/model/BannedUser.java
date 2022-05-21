@@ -3,6 +3,7 @@ package com.example.firststepsintoadulthood2.model;
 public class BannedUser {
     private String username, banMessage;
     private int banPeriod;
+    private long banDate;
 
     public BannedUser(){
 
@@ -12,6 +13,7 @@ public class BannedUser {
         this.username = username;
         this.banMessage = banMessage;
         this.banPeriod = banPeriod;
+        this.banDate = System.currentTimeMillis();
     }
 
     public String getUsername() {
@@ -46,5 +48,13 @@ public class BannedUser {
         if (!banMessage.equals(user.banMessage)) return false;
         if (!(banPeriod ==user.banPeriod)) return false;
         return true;
+    }
+
+    public long getBanDate() {
+        return banDate;
+    }
+
+    public void setBanDate(long banDate) {
+        this.banDate = banDate;
     }
 }
