@@ -6,12 +6,17 @@ import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.ReportedPostsService;
+import com.example.firststepsintoadulthood2.services.ReportedUsersService;
 import com.example.firststepsintoadulthood2.services.UserService;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,14 +26,17 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.EventObject;
 import java.util.List;
 import java.util.Stack;
 
@@ -355,7 +363,7 @@ public class LoginController {
 
 
 
-    public void displayOptions(ActionEvent actionEvent) throws IOException {
+    public void displayOptions(ActionEvent actionEvent) {
         AnchorPane root = new AnchorPane();
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");

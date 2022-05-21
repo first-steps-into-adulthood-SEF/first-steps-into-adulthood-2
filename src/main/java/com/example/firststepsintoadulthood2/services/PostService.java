@@ -72,6 +72,14 @@ public class PostService {
         }
     }
 
+    public static void addReplyToPost(String postTitle, String author, String replier, String reply){
+        for(Post post : posts){
+            if(post.getTitle().equals(postTitle) && post.getUsername().equals(author)){
+                post.getReplies().add(replier + " : " + reply);
+            }
+        }
+    }
+
     public static Stack<Post> getPostList(){
 
         return posts;

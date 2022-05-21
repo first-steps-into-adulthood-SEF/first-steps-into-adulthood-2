@@ -6,6 +6,7 @@ module com.example.firststepsintoadulthood2 {
     requires org.apache.commons.io;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
+    requires org.json;
     //requires commons.validator;
 
     opens com.example.firststepsintoadulthood2 to javafx.fxml;
