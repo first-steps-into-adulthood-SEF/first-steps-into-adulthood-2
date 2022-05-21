@@ -1,11 +1,9 @@
 package com.example.firststepsintoadulthood2.services;
+import com.example.firststepsintoadulthood2.controllers.LoginController;
 import com.example.firststepsintoadulthood2.model.Messages;
 
-import com.example.firststepsintoadulthood2.model.User;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
@@ -14,6 +12,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import static com.example.firststepsintoadulthood2.services.FileSystemService.getPathToFile;
 
 
@@ -40,8 +39,18 @@ public class ChatService {
 
     public static void addMessage(String source, String destination, String msg) throws IOException {
 
-        messages.add(msg);
-        chat.add(new Messages(source, destination, messages));
+        if(msg.equals("IDWMHA")){
+
+            chat.add(new Messages(source, destination, messages));
+
+        }
+        else{
+
+            messages.add(msg);
+
+        }
+
+
         persistMessages();
 
     }
@@ -53,6 +62,13 @@ public class ChatService {
         objectMapper.writerWithDefaultPrettyPrinter().writeValue(PATH.toFile(), chat);
 
     }
+
+    public static List<String> getMessages(){
+
+        return messages;
+
+    }
+
 
 }
 

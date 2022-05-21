@@ -4,19 +4,14 @@ import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
-import com.example.firststepsintoadulthood2.services.ChatService;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.ReportedPostsService;
 import com.example.firststepsintoadulthood2.services.UserService;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,19 +21,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.util.EventObject;
 import java.util.List;
-import java.util.Objects;
 import java.util.Stack;
 
 
@@ -59,7 +50,7 @@ public class LoginController {
     public static String postDescription;
     public static String postDate;
     public static List<String> postComments;
-    public static int profileCheck;
+    public static boolean isPersonalProfile;
 
 
     @FXML
@@ -132,14 +123,14 @@ public class LoginController {
             fillWithPosts();
 
             try{
-                if(profileCheck == 2){
+                if(isPersonalProfile == true){
 
-                    profileCheck = 0;
+                    isPersonalProfile = false;
                     usernameInProfile.setText("@" + keepUsername);
 
                 }
                 else{
-                    profileCheck = 0;
+                    isPersonalProfile = false;
 
                     usernameInProfile.setText("@" + postAuthor);
 
@@ -353,11 +344,13 @@ public class LoginController {
 
 
     public void returnToForum(ActionEvent actionEvent) throws IOException {
+
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
 
@@ -441,7 +434,7 @@ public class LoginController {
 
     public void viewPersonalProfile(ActionEvent event) throws IOException {
 
-        profileCheck = 2;
+        isPersonalProfile = true;
 
         Parent root = FXMLLoader.load(Main.class.getResource("personalProfile.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

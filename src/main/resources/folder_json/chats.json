@@ -1,9 +1,5 @@
 [ {
   "source" : "alexa.funi",
   "destination" : "mali.admin",
-  "messages" : [ "hello" ]
-}, {
-  "source" : "alexa.funi",
-  "destination" : "mali.admin",
-  "messages" : [ "hey" ]
+  "messages" : [ "hello", "hi", "buna", "bonjour" ]
 } ]
