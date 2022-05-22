@@ -61,7 +61,7 @@ public class ReportedUsersService {
     }
 
     public static void sendReportToAdmins(String reporter, String reportedUser, String reportMotive, String reportDescription) throws IOException {
-        String notification = reporter + " reported " + reportedUser + ". Motive:" + reportMotive + ". Description:" + reportDescription;
+        String notification = "@" + reporter + " reported @" + reportedUser + ". Motive:" + reportMotive + ". Description:" + reportDescription;
         ChatController.userToBeReported = reportedUser;
         ChatService.loadMessagesFromFile();
         ChatService.addMessage("SYSTEM", "vali.admin", notification);

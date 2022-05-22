@@ -70,4 +70,36 @@
   "source" : "SYSTEM",
   "destination" : "mali.admin",
   "messages" : [ "alexa.funi reported hey. Motive:Not a suitable topic for the forum", "alexa.funi reported hey. Motive:Not a suitable topic for the forum" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported hi there. Motive:Offensive" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "mali.admin",
+  "messages" : [ "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported hi there. Motive:Offensive" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported testare comentarii. Motive:Not a suitable topic for the forum", "alexa.funi reported testare comentarii. Motive:Not a suitable topic for the forum" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "mali.admin",
+  "messages" : [ "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported hi there. Motive:Offensive", "alexa.funi reported testare comentarii. Motive:Not a suitable topic for the forum", "alexa.funi reported testare comentarii. Motive:Not a suitable topic for the forum" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:null" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "mali.admin",
+  "messages" : [ "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:null" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:Offensive", "@alexa.funi reported test by @mali.admin. Motive:Offensive" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "mali.admin",
+  "messages" : [ "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:null", "@alexa.funi reported test by @mali.admin. Motive:Offensive", "@alexa.funi reported test by @mali.admin. Motive:Offensive" ]
 } ]

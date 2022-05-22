@@ -81,6 +81,8 @@ public class LoginController {
     public ImageView profilePicture;
     @FXML
     public ImageView profilePicture2;
+    @FXML
+    public Button deletePost;
 
     private File filePath;
 
@@ -155,6 +157,7 @@ public class LoginController {
                     User user = UserService.getUser(keepUsername);
                     if(user!=null && user.getIsAdmin() == 1){
                         banButton.setDisable(false);
+
                     }
 
                 }
@@ -199,6 +202,12 @@ public class LoginController {
                 }
 
             }
+
+            if(user!=null && user.getIsAdmin() == 1){
+
+                deletePost.setVisible(true);
+            }
+
 
 
 
@@ -352,7 +361,7 @@ public class LoginController {
                 String selectedOption = (String)cb.getValue();
 
                 ReportedPostsService.addReportedPosts(title, description, username, date, selectedOption);
-                ReportedPostsService.sendReportToAdmins(keepUsername, title, String.valueOf(selectedOption));
+                ReportedPostsService.sendReportToAdmins(keepUsername, title, username, String.valueOf(selectedOption));
 
 
             } catch (CouldNotWritePostsException ex) {

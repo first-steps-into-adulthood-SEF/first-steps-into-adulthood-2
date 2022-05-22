@@ -2,7 +2,9 @@ package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.model.Post;
+import com.example.firststepsintoadulthood2.model.User;
 import com.example.firststepsintoadulthood2.services.PostService;
+import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +27,9 @@ import java.util.Stack;
 
 
 public class ForumController extends LoginController{
+
+
+
 
     public void switchToInboxPage(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("inbox.fxml"));
@@ -55,16 +60,11 @@ public class ForumController extends LoginController{
 
     }
 
-    /*public void switchToForumPage(ActionEvent event) throws IOException{
 
-        initialize();
-        Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void adminDeletePosts(ActionEvent event) throws IOException{
 
-    }*/
+
+    }
 
 
 }
