@@ -58,7 +58,7 @@ public class LoginController {
     public static String postDescription;
     public static String postDate;
     public static List<String> postComments;
-    public static int profileCheck;
+    public static boolean isPersonalProfile;
 
 
     @FXML
@@ -142,14 +142,14 @@ public class LoginController {
             fillWithPosts();
 
             try{
-                if(profileCheck == 2){
+                if(isPersonalProfile == true){
 
-                    profileCheck = 0;
+                    isPersonalProfile = false;
                     usernameInProfile.setText("@" + keepUsername);
 
                 }
                 else{
-                    profileCheck = 0;
+                    isPersonalProfile = false;
 
                     usernameInProfile.setText("@" + postAuthor);
                     User user = UserService.getUser(keepUsername);
@@ -368,18 +368,18 @@ public class LoginController {
 
 
     public void returnToForum(ActionEvent actionEvent) throws IOException {
+
         Parent root = FXMLLoader.load(Main.class.getResource("forum.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
 
 
     public void displayOptions(ActionEvent actionEvent) {
-        Button buton = (Button) actionEvent.getSource();
-        ReportedUsersService.rememberUser = buton.getText();
         AnchorPane root = new AnchorPane();
         Button reportButton = new Button("Report user");
         Button viewProfileButton = new Button("View user profile");
@@ -439,12 +439,28 @@ public class LoginController {
 
         });
 
+        messageButton.setOnAction(event -> {
+
+            Parent root3 = null;
+            try {
+                root3 = FXMLLoader.load(Main.class.getResource("chat.fxml"));
+            } catch (IOException e) {
+                //e.printStackTrace();
+            }
+
+            Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene1 = new Scene(root3);
+            stage1.setScene(scene1);
+            stage1.show();
+
+        });
+
     }
 
 
     public void viewPersonalProfile(ActionEvent event) throws IOException {
 
-        profileCheck = 2;
+        isPersonalProfile = true;
 
         Parent root = FXMLLoader.load(Main.class.getResource("personalProfile.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -41,6 +41,7 @@ public class UserReportController extends LoginController{
             option.add("stolen identity");
         }
         ReportedUsersService.addReportedUsers(keepUsername, ReportedUsersService.rememberUser, String.valueOf(option), reportDescription.getText());
+        ReportedUsersService.sendReportToAdmins(keepUsername, ReportedUsersService.rememberUser, String.valueOf(option), reportDescription.getText());
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
