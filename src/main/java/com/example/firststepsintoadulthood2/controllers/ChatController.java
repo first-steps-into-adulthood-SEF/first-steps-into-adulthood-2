@@ -19,6 +19,8 @@ import java.util.List;
 
 public class ChatController extends LoginController{
 
+    public static String userToBeReported;
+
     @FXML
     public TextField messageField;
     @FXML
@@ -31,6 +33,7 @@ public class ChatController extends LoginController{
     public Pane pane;
 
     public int i = 1;
+    public ScrollPane convoScrollPane;
 
     public void initialize() {
 
@@ -42,7 +45,29 @@ public class ChatController extends LoginController{
             //e.printStackTrace();
         }
         username.setText(postAuthor);
-
+        VBox vbox = new VBox();
+        List<Messages> chats = ChatService.getChats();
+        for(Messages ch : chats){
+            if(ch.getDestination().equals(keepUsername) && ch.getSource().equals(postAuthor)){
+                for(String str : ch.getMessages()){
+                    Label received = new Label();
+                    received.setFont(new Font("Arial", 20));
+                    received.setText(str);
+                    received.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+                    vbox.getChildren().add(received);
+                }
+            }
+            if(ch.getDestination().equals(postAuthor) && ch.getSource().equals(keepUsername)){
+                for(String str : ch.getMessages()){
+                    Label sent = new Label();
+                    sent.setText(str);
+                    sent.setFont(new Font("Arial", 20));
+                    sent.setBackground(new Background(new BackgroundFill(Color.web("#772dcc"), CornerRadii.EMPTY, Insets.EMPTY)));
+                    vbox.getChildren().add(sent);
+                }
+            }
+        }
+        convoScrollPane.setContent(vbox);
     }
 
     public void handleSendMessage(ActionEvent actionEvent) throws IOException {
@@ -55,60 +80,10 @@ public class ChatController extends LoginController{
         if(!messageField.getText().equals("IDWMHA")){
 
             auxMsg = messageField.getText();
-            sendMessage(auxMsg);
 
         }
 
-    }
-
-
-    public void sendMessage(String msg){
-
-        Pane msgPane = new Pane();
-
-        msgPane.prefHeight(900);
-        msgPane.prefWidth(900);
-
-        Character[] pieces = new Character[1000];
-        int k = 0, l = 1;
-
-        for(int i = 0; i < msg.length(); i++){
-
-            pieces[k++] = msg.charAt(i);
-
-            if(i > 50 * l && msg.charAt(i) == ' '){
-
-                pieces[k++] = '\n';
-                l *= 2;
-
-            }
-
-        }
-
-        StringBuilder str = new StringBuilder();
-
-        for(int i = 0; i < k; i++){
-
-            str.append(pieces[i]);
-
-        }
-
-        Label text = new Label(str + "          ");
-        Label username = new Label("@" + keepUsername);
-
-        text.setLayoutX(77);
-        text.setLayoutY(145 + i);
-        text.setFont(Font.font(18));
-        text.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
-
-        username.setLayoutX(77);
-        username.setLayoutY(170 + i + l*16);
-
-        i += 100;
-
-        msgPane.getChildren().add(text);
-        msgPane.getChildren().add(username);
-        pane.getChildren().add(msgPane);
+        initialize();
 
     }
 

@@ -17,7 +17,6 @@ public class Messages {
         this.source = source;
         this.destination = destination;
         this.messages = messages;
-
     }
 
 

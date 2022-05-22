@@ -6,24 +6,10 @@
   "option" : null,
   "replies" : [ ]
 }, {
-  "title" : "(Untitled)",
-  "description" : "reverie",
-  "username" : "mali.admin",
-  "date" : "Sun May 01 22:15:39 EEST 2022",
-  "option" : null,
-  "replies" : [ ]
-}, {
   "title" : "hey",
   "description" : "si eu utilizatorul pot posta!",
   "username" : "alexa.funi",
   "date" : "Sun May 01 22:16:15 EEST 2022",
-  "option" : null,
-  "replies" : [ ]
-}, {
-  "title" : "kanye",
-  "description" : "e acum ye",
-  "username" : "alexa.funi",
-  "date" : "Thu May 05 12:09:40 EEST 2022",
   "option" : null,
   "replies" : [ ]
 }, {
@@ -32,7 +18,7 @@
   "username" : "vali.admin",
   "date" : "Tue May 17 21:02:22 EEST 2022",
   "option" : null,
-  "replies" : [ "testare", "testare 2" ]
+  "replies" : [ ]
 }, {
   "title" : "hi there",
   "description" : "",

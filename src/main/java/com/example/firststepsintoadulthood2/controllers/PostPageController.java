@@ -3,6 +3,7 @@ package com.example.firststepsintoadulthood2.controllers;
 import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.services.PostService;
+import com.example.firststepsintoadulthood2.services.ReportedUsersService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,6 +78,7 @@ public class PostPageController extends LoginController{
         postTitleInPage.setText(postTitle);
         dateInPage.setText(postDate);
         usernameInPage.setText(postAuthor);
+        ReportedUsersService.rememberUser = postAuthor;
         descriptionInPage.setText(postDescription);
         showReplies();
     }

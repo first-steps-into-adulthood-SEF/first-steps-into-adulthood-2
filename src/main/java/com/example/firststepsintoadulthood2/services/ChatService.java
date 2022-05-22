@@ -28,7 +28,7 @@ public class ChatService {
 
         if (!Files.exists(PATH)) {
 
-            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("proto-chat.json")), PATH.toFile());
+            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("proto-chats.json")), PATH.toFile());
 
         }
 
@@ -61,6 +61,10 @@ public class ChatService {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.writerWithDefaultPrettyPrinter().writeValue(PATH.toFile(), chat);
 
+    }
+
+    public static List<Messages> getChats(){
+        return chat;
     }
 
     public static List<String> getMessages(){

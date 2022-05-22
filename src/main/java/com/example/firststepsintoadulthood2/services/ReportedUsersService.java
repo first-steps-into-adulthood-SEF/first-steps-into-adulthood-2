@@ -1,5 +1,6 @@
 package com.example.firststepsintoadulthood2.services;
 
+import com.example.firststepsintoadulthood2.controllers.ChatController;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWriteUsersException;
 import com.example.firststepsintoadulthood2.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -59,8 +60,13 @@ public class ReportedUsersService {
         }
     }
 
-    public static void sendReportToAdmins(String reporter, String reportedUser, String reportMotive, String reportDescription) {
+    public static void sendReportToAdmins(String reporter, String reportedUser, String reportMotive, String reportDescription) throws IOException {
         String notification = reporter + " reported " + reportedUser + ". Motive:" + reportMotive + ". Description:" + reportDescription;
-        //Send notification to admins
+        ChatController.userToBeReported = reportedUser;
+        ChatService.loadMessagesFromFile();
+        ChatService.addMessage("SYSTEM", "vali.admin", notification);
+        ChatService.addMessage("SYSTEM", "vali.admin", "IDWMHA");
+        ChatService.addMessage("SYSTEM", "mali.admin", notification);
+        ChatService.addMessage("SYSTEM", "mali.admin", "IDWMHA");
     }
 }

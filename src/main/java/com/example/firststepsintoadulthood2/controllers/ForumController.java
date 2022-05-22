@@ -26,6 +26,13 @@ import java.util.Stack;
 
 public class ForumController extends LoginController{
 
+    public void switchToInboxPage(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("inbox.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void switchToForumDescriptionPage(ActionEvent event) throws IOException {
 

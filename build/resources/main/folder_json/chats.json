@@ -1,5 +1,17 @@
 [ {
-  "source" : "alexa.funi",
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported yogirldula. Motive:[bad language]. Description:" ]
+}, {
+  "source" : "SYSTEM",
   "destination" : "mali.admin",
-  "messages" : [ "hello", "hi", "buna", "bonjour" ]
+  "messages" : [ "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported yogirldula. Motive:[bad language]. Description:" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "vali.admin",
+  "messages" : [ "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported mali.admin. Motive:[theme not respected]. Description:", "vali.admin reported mali.admin. Motive:[theme not respected]. Description:" ]
+}, {
+  "source" : "SYSTEM",
+  "destination" : "mali.admin",
+  "messages" : [ "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported yogirldula. Motive:[bad language]. Description:", "vali.admin reported mali.admin. Motive:[theme not respected]. Description:", "vali.admin reported mali.admin. Motive:[theme not respected]. Description:" ]
 } ]
