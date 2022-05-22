@@ -205,7 +205,15 @@ public class LoginController {
 
             if(user!=null && user.getIsAdmin() == 1){
 
-                deletePost.setVisible(true);
+                try{
+
+                    deletePost.setVisible(true);
+
+                }catch(NullPointerException e){
+
+                }
+
+
             }
 
 
@@ -566,5 +574,8 @@ public class LoginController {
         });
 
     }
+
+
+
 
 }
