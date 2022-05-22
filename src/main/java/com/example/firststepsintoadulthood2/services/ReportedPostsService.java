@@ -1,5 +1,6 @@
 package com.example.firststepsintoadulthood2.services;
 
+import com.example.firststepsintoadulthood2.controllers.ChatController;
 import com.example.firststepsintoadulthood2.exceptions.*;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -58,5 +59,17 @@ public class ReportedPostsService {
 
         }
     }
+
+
+    public static void sendReportToAdmins(String reporter, String reportedPost, String reportMotive) throws IOException {
+        String notification = reporter + " reported " + reportedPost + ". Motive:" + reportMotive;
+        ChatController.postToBeReported = reportedPost;
+        ChatService.loadMessagesFromFile();
+        ChatService.addMessage("SYSTEM", "vali.admin", notification);
+        ChatService.addMessage("SYSTEM", "vali.admin", "IDWMHA");
+        ChatService.addMessage("SYSTEM", "mali.admin", notification);
+        ChatService.addMessage("SYSTEM", "mali.admin", "IDWMHA");
+    }
+
 
 }

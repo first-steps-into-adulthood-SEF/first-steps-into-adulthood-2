@@ -10,7 +10,7 @@ public class Post {
     private String username;
     private String date;
     private String option;
-    public ArrayList<String> replies = new ArrayList<>();
+    public ArrayList<String> replies/* = new ArrayList<>()*/;
 
     public Post(){
 
@@ -75,7 +75,7 @@ public class Post {
         this.option = option;
     }
 
-    public ArrayList<String> getReplies() { return replies;}
+    public ArrayList<String> getReplies() {return replies;}
 
     @Override
     public boolean equals(Object o) {

@@ -20,6 +20,7 @@ import java.util.List;
 public class ChatController extends LoginController{
 
     public static String userToBeReported;
+    public static String postToBeReported;
 
     @FXML
     public TextField messageField;
@@ -50,20 +51,39 @@ public class ChatController extends LoginController{
         for(Messages ch : chats){
             if(ch.getDestination().equals(keepUsername) && ch.getSource().equals(postAuthor)){
                 for(String str : ch.getMessages()){
+                    Label username = new Label("@" + keepUsername);
                     Label received = new Label();
                     received.setFont(new Font("Arial", 20));
                     received.setText(str);
+                    received.setLayoutX(77);
+                    received.setLayoutY(145 + i);
+                    received.setFont(Font.font(18));
                     received.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
-                    vbox.getChildren().add(received);
+
+                    username.setLayoutX(77);
+                    username.setLayoutY(170 + i);
+
+                    i++;
+
+                    vbox.getChildren().addAll(received, username);
                 }
             }
             if(ch.getDestination().equals(postAuthor) && ch.getSource().equals(keepUsername)){
                 for(String str : ch.getMessages()){
+                    Label username = new Label("@" + keepUsername);
                     Label sent = new Label();
                     sent.setText(str);
                     sent.setFont(new Font("Arial", 20));
-                    sent.setBackground(new Background(new BackgroundFill(Color.web("#772dcc"), CornerRadii.EMPTY, Insets.EMPTY)));
-                    vbox.getChildren().add(sent);
+                    sent.setBackground(new Background(new BackgroundFill(Color.web("#C8A2C8"), CornerRadii.EMPTY, Insets.EMPTY)));
+                    sent.setLayoutX(77);
+                    sent.setLayoutY(145 + i);
+
+                    username.setLayoutX(77);
+                    username.setLayoutY(170 + i);
+
+                    i++;
+
+                    vbox.getChildren().addAll(sent, username);
                 }
             }
         }
@@ -86,5 +106,6 @@ public class ChatController extends LoginController{
         initialize();
 
     }
+
 
 }

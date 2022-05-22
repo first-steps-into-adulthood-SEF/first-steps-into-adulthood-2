@@ -352,11 +352,15 @@ public class LoginController {
                 String selectedOption = (String)cb.getValue();
 
                 ReportedPostsService.addReportedPosts(title, description, username, date, selectedOption);
+                ReportedPostsService.sendReportToAdmins(keepUsername, title, String.valueOf(selectedOption));
+
 
             } catch (CouldNotWritePostsException ex) {
 
                 ex.getMessage();
 
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
 
             stage.close();
