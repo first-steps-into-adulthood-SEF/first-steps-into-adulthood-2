@@ -5,11 +5,11 @@ public class User {
 
     private String fullName, birthday, username, password, option, description, profileDescription,imagePath;
     private String reporter, reportDescription;
-    private int reportCheck;
+    private int isAdmin, reportCheck;
+
     public User() {
 
     }
-
 
     public User(String fullName, String birthday, String username, String password) {
 
@@ -17,6 +17,7 @@ public class User {
         this.birthday = birthday;
         this.username = username;
         this.password = password;
+        this.isAdmin = 0;
     }
 
     public User(int reportCheck, String username, String reporter, String option, String reportDescription){
@@ -25,6 +26,7 @@ public class User {
         this.reporter = reporter;
         this.option = option;
         this.reportDescription = reportDescription;
+        this.isAdmin = 0;
     }
 
     public String getImagePath() {
@@ -172,5 +174,13 @@ public class User {
 
     public void setReportCheck(int reportCheck) {
         this.reportCheck = reportCheck;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

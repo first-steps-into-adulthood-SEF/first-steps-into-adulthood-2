@@ -2,12 +2,10 @@ package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.CouldNotWritePostsException;
+import com.example.firststepsintoadulthood2.model.BannedUser;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.example.firststepsintoadulthood2.model.User;
-import com.example.firststepsintoadulthood2.services.PostService;
-import com.example.firststepsintoadulthood2.services.ReportedPostsService;
-import com.example.firststepsintoadulthood2.services.ReportedUsersService;
-import com.example.firststepsintoadulthood2.services.UserService;
+import com.example.firststepsintoadulthood2.services.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -51,8 +49,10 @@ public class LoginController {
     protected static String keepUsername;
 
     public VBox verticalBox;
+    public Label banReasonLabel;
+    public Label daysRemaining;
     int i = 0, j = 0;
-
+    public Button banButton;
     public static String postTitle;
     public static String postAuthor;
     public static String postDescription;
@@ -118,7 +118,19 @@ public class LoginController {
         }
         else{
             keepUsername = usernameField.getText();
-            switchToForumPage(event);
+            if(BannedUsersService.checkBanned(keepUsername) > 0) {
+                Parent banWarningRoot = FXMLLoader.load(Main.class.getResource("banWarning.fxml"));
+                Stage banWarningStage = new Stage();
+                Scene scene = new Scene(banWarningRoot);
+                banWarningStage.setTitle("Ban Warning");
+                Image img = new Image("icon.png");
+                banWarningStage.getIcons().add(img);
+                banWarningStage.setScene(scene);
+                banWarningStage.show();
+            }
+            else{
+                switchToForumPage(event);
+            }
         }
 
     }
@@ -127,7 +139,6 @@ public class LoginController {
     public void initialize() {
 
         try {
-
             fillWithPosts();
 
             try{
@@ -141,6 +152,10 @@ public class LoginController {
                     isPersonalProfile = false;
 
                     usernameInProfile.setText("@" + postAuthor);
+                    User user = UserService.getUser(keepUsername);
+                    if(user!=null && user.getIsAdmin() == 1){
+                        banButton.setDisable(false);
+                    }
 
                 }
 
@@ -210,6 +225,7 @@ public class LoginController {
     public void createPostBodyAndAddToHomePage(Post post) throws NullPointerException {
 
         Pane postPane = new Pane();
+
 
         postPane.prefHeight(300);
         postPane.prefWidth(600);
@@ -387,6 +403,8 @@ public class LoginController {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
+        Image img = new Image("icon.png");
+        stage.getIcons().add(img);
         stage.setTitle("Options");
         stage.show();
 

@@ -1,22 +1,28 @@
 package com.example.firststepsintoadulthood2.controllers;
 
+import com.example.firststepsintoadulthood2.Main;
 import com.example.firststepsintoadulthood2.exceptions.*;
 import com.example.firststepsintoadulthood2.model.Post;
+import com.example.firststepsintoadulthood2.model.User;
 import com.example.firststepsintoadulthood2.services.PostService;
 import com.example.firststepsintoadulthood2.services.UserService;
 import javafx.css.converter.CursorConverter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,6 +37,7 @@ import static com.example.firststepsintoadulthood2.services.PostService.loadPost
 public class PostController extends ForumController{
 
     public static TextArea textArea = new TextArea();
+
 
 
     @FXML
@@ -114,5 +121,11 @@ public class PostController extends ForumController{
 
     }
 
-
+    public void banUser(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("banForm.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
