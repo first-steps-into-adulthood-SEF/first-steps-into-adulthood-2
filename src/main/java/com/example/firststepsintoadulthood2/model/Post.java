@@ -10,7 +10,7 @@ public class Post {
     private String username;
     private String date;
     private String option;
-    public ArrayList<String> replies/* = new ArrayList<>()*/;
+    public ArrayList<String> replies = new ArrayList<>();
 
     public Post(){
 
