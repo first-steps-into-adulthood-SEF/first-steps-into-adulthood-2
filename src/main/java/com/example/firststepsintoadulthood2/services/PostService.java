@@ -86,4 +86,12 @@ public class PostService {
 
     }
 
+
+    public static void deletePostPocedure(String user, String title) throws CouldNotWritePostsException {
+
+        posts.removeIf(post -> post.getTitle().equals(title) && post.getUsername().equals(user));
+        persistPosts();
+
+    }
+
 }

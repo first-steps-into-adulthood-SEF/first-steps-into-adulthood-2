@@ -5,6 +5,7 @@ import com.example.firststepsintoadulthood2.exceptions.*;
 import com.example.firststepsintoadulthood2.model.Post;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.control.Button;
 import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
@@ -61,8 +62,8 @@ public class ReportedPostsService {
     }
 
 
-    public static void sendReportToAdmins(String reporter, String reportedPost, String reportMotive) throws IOException {
-        String notification = reporter + " reported " + reportedPost + ". Motive:" + reportMotive;
+    public static void sendReportToAdmins(String reporter, String reportedPost, String username, String reportMotive) throws IOException {
+        String notification = "@" + reporter + " reported `" + reportedPost + "` by @" + username + ". Motive:" + reportMotive;
         ChatController.postToBeReported = reportedPost;
         ChatService.loadMessagesFromFile();
         ChatService.addMessage("SYSTEM", "vali.admin", notification);
