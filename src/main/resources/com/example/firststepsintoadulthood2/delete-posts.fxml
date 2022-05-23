@@ -5,23 +5,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ForumController">
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #E6E6FA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ForumController">
     <children>
-        <Text layoutX="32.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the title of the post:">
+        <Text layoutX="29.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the title of the post:">
             <font>
-                <Font name="Calibri" size="14.0" />
+                <Font name="Calibri" size="23.0" />
             </font>
         </Text>
-        <TextField layoutX="32.0" layoutY="134.0" prefHeight="26.0" prefWidth="520.0" />
-        <Text layoutX="32.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the author of the post:">
+        <TextField fx:id="reportedPostTitle" layoutX="29.0" layoutY="230.0" prefHeight="26.0" prefWidth="520.0" />
+        <Text layoutX="32.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the author of the post:">
             <font>
-                <Font name="Calibri" size="14.0" />
+                <Font name="Calibri" size="22.0" />
             </font>
         </Text>
-        <TextField layoutX="32.0" layoutY="225.0" prefHeight="26.0" prefWidth="267.0" />
-        <Button layoutX="256.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-color: C8A2C8;" text="Delete post">
+        <TextField fx:id="reportedPostAuthor" layoutX="32.0" layoutY="385.0" prefHeight="26.0" prefWidth="267.0" />
+        <Button layoutX="326.0" layoutY="533.0" mnemonicParsing="false" onAction="#proceedToDeletePost" prefHeight="46.0" prefWidth="148.0" style="-fx-background-color: C8A2C8;" text="Delete post">
             <cursor>
                 <Cursor fx:constant="HAND" />
-            </cursor></Button>
+            </cursor>
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font></Button>
+      <Button layoutX="334.0" layoutY="618.0" mnemonicParsing="false" onAction="#switchToForumPage" style="-fx-background-color: transparent;" text="Get back to forum" textFill="#001aff">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>
