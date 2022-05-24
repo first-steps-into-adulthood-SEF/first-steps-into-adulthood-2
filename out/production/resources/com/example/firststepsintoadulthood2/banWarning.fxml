@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.BanWarningController">
+   <children>
+      <Label layoutX="117.0" layoutY="58.0" text="Sorry! You have been blocked from accessing the forum." textFill="RED">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="180.0" layoutY="128.0" text="Reason:" textFill="RED">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="banReasonLabel" layoutX="258.0" layoutY="126.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="192.0" text="Number of days that need to pass until you can access your account again:" textFill="RED">
+         <font>
+            <Font name="Calibri" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="daysRemaining" layoutX="117.0" layoutY="225.0" text="Label" textFill="#1200ff">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

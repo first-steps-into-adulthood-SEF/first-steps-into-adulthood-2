@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ChatController">
+    <children>
+        <Label layoutX="63.0" layoutY="125.0" prefHeight="501.0" prefWidth="674.0" style="-fx-border-color: #C8A2C8;" textAlignment="CENTER" />
+        <Button layoutX="323.0" layoutY="647.0" mnemonicParsing="false" onAction="#returnToForum" prefHeight="17.0" prefWidth="153.0" style="-fx-background-color: #C8A2C8;" text="Return to forum page">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="111.0" layoutY="61.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#c526e0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="43.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../default-avatar.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="username" layoutX="121.0" layoutY="69.0" prefHeight="31.0" prefWidth="232.0" text="d">
+            <font>
+                <Font name="Calibri" size="14.0" />
+            </font></Label>
+        <TextField fx:id="messageField" layoutX="75.0" layoutY="508.0" prefHeight="103.0" prefWidth="588.0">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font></TextField>
+        <Button layoutX="675.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleSendMessage" prefHeight="31.0" prefWidth="54.0" style="-fx-background-color: #C8A2C8;" text="Send">
+            <font>
+                <Font name="Calibri Light" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Label fx:id="message" layoutX="77.0" layoutY="145.0" prefHeight="46.0" prefWidth="368.0" style="-fx-background-color: #C8A2C8;" text="Label" visible="false" />
+      <Label fx:id="usernameTxt" layoutX="77.0" layoutY="196.0" prefHeight="17.0" prefWidth="204.0" text="Label" visible="false" />
+      <ScrollPane fx:id="convoScrollPane" layoutX="86.0" layoutY="143.0" prefHeight="349.0" prefWidth="624.0" />
+    </children>
+
+</Pane>

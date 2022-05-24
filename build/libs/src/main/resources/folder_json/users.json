@@ -1,0 +1,53 @@
+[ {
+  "fullName" : "Valentin Nistoran",
+  "birthday" : "11.01.2002",
+  "username" : "vali.admin",
+  "password" : "=X7�/��L�X��\u0007/a�����Ș�`d���$�\u001A��Ћ�\u001AsV�\nN\u0019�c\u001B�Z�6t \u0002$e6�)�x",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
+}, {
+  "fullName" : "Mălina Pavel",
+  "birthday" : "30.06.2001",
+  "username" : "mali.admin",
+  "password" : "N�H�'I�/1��(�\u0017Du�J�\u0000\\���ɨқKyB�AU��r\u0019��\\T��\u000E��#��7�6��\u000F!��U",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
+}, {
+  "fullName" : "Ale",
+  "birthday" : "12.03.1999",
+  "username" : "ale.h",
+  "password" : "�D���*OV�g&�B��P\u0013' ��1����`��C�u\f��׀�_u+�Ř\u0014�ҡ\u0003xK>�!fS��R���\u000E",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : "f",
+  "imagePath" : "C:\\Users\\Laura\\Documents\\shit&giggles\\tumblr_d6788d25527318608288b43f448c0205_4225c63c_640.jpg",
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
+}, {
+  "fullName" : "feferfe",
+  "birthday" : "ferf",
+  "username" : "arfeee",
+  "password" : "��\u001A�\u001B}jIu���&+\\ڏ\rWd�\u00000#\u0004JZH�U�h\u0012�\u0012\u0006���� B�ɧ�\u0004����'\u001D�;�L\u0003���%\u0019F",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
+} ]

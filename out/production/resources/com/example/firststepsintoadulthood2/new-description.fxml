@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.NewProfileDescriptionController">
+   <children>
+      <Text layoutX="32.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write the new description:">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="profileDescription" layoutX="34.0" layoutY="73.0" prefHeight="225.0" prefWidth="520.0" />
+      <Button onAction="#handleDescriptionChanges" layoutX="256.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-color: C8A2C8;" text="Save changes">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

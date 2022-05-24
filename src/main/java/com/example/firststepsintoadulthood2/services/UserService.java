@@ -227,5 +227,11 @@ public class UserService {
         return null;
     }
 
+    public static List<User> getUsers() {
+
+        return users;
+
+    }
+
 
 }
