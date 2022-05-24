@@ -37,9 +37,9 @@ public class LoginControllerTest {
     public void testNonexistentUser() throws IOException {
         UserService.loadUsersFromFile();
         try {
-            controller.LoginButtonClick(new ActionEvent());
             controller.usernameField.setText(NONEXISTENT_USER);
             controller.passwordField.setText(TEST_INCORRECT_PASSWORD);
+            controller.LoginButtonClick(new ActionEvent());
             assertEquals("User doesn't exist!", controller.loginMessage.getText());
         }catch (NullPointerException ignored){
 
@@ -50,9 +50,9 @@ public class LoginControllerTest {
     public void testIncorrectPassword() throws IOException {
         UserService.loadUsersFromFile();
         try {
-            controller.LoginButtonClick(new ActionEvent());
             controller.usernameField.setText(TEST_USER);
             controller.passwordField.setText(TEST_INCORRECT_PASSWORD);
+            controller.LoginButtonClick(new ActionEvent());
             assertEquals("Incorrect password!", controller.loginMessage.getText());
         }catch (NullPointerException ignored){
 
@@ -64,10 +64,10 @@ public class LoginControllerTest {
     public void testExistingUser() throws IOException {
         UserService.loadUsersFromFile();
         try {
-            controller.LoginButtonClick(new ActionEvent());
             controller.usernameField.setText(TEST_USER);
             controller.passwordField.setText(TEST_PASSWORD);
-            assertEquals("", controller.loginMessage.getText());
+            controller.LoginButtonClick(new ActionEvent());
+            assertEquals("asdf", controller.loginMessage.getText());
         }catch (NullPointerException ignored){
 
         }
@@ -76,9 +76,10 @@ public class LoginControllerTest {
     @Test
     public void testNullFields() {
         try {
-            controller.LoginButtonClick(new ActionEvent());
+
             assertNull(controller.usernameField);
             assertNull(controller.passwordField);
+            controller.LoginButtonClick(new ActionEvent());
             assertEquals("User doesn't exist!", controller.loginMessage.getText());
         }catch (NullPointerException | IOException ignored){
 
