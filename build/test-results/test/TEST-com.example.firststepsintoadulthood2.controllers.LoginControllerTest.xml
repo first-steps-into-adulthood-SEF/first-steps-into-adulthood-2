@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-24T18:33:22" hostname="DESKTOP-V6AGB79" time="0.156">
+<testsuite name="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-24T18:37:28" hostname="DESKTOP-T2BA6RS" time="0.132">
   <properties/>
-  <testcase name="testNullFields()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.016"/>
-  <testcase name="testNonexistentUser()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.129"/>
-  <testcase name="testExistingUser()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.003"/>
-  <testcase name="testIncorrectPassword()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.006"/>
+  <testcase name="testNullFields()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.013"/>
+  <testcase name="testNonexistentUser()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.11"/>
+  <testcase name="testExistingUser()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.002"/>
+  <testcase name="testIncorrectPassword()" classname="com.example.firststepsintoadulthood2.controllers.LoginControllerTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
