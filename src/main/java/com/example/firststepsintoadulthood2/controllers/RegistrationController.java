@@ -40,17 +40,17 @@ import java.io.IOException;
 public class RegistrationController {
 
     @FXML
-    private Label registrationMessage;
+    public Label registrationMessage;
     @FXML
-    private PasswordField passwordField;
+    public PasswordField passwordField;
     @FXML
-    private TextField usernameField;
+    public TextField usernameField;
     @FXML
-    private TextField fullNameField;
+    public TextField fullNameField;
     @FXML
-    private TextField birthdayField;
+    public TextField birthdayField;
     @FXML
-    private Button invisible;
+    public Button invisible;
 
 
     @FXML
@@ -58,9 +58,16 @@ public class RegistrationController {
 
         try {
 
-            UserService.addUser(fullNameField.getText(), birthdayField.getText(), usernameField.getText(), passwordField.getText());
-            registrationMessage.setText("                      Account created successfully!");
-            invisible.setVisible(true);
+            try{
+                UserService.addUser(fullNameField.getText(), birthdayField.getText(), usernameField.getText(), passwordField.getText());
+                registrationMessage.setText("                      Account created successfully!");
+                invisible.setVisible(true);
+            }catch(NullPointerException e){
+
+            }
+            //UserService.addUser(fullNameField.getText(), birthdayField.getText(), usernameField.getText(), passwordField.getText());
+            //registrationMessage.setText("                      Account created successfully!");
+            //invisible.setVisible(true);
 
         } catch (UserAlreadyExistsException | CouldNotWriteUsersException | NullFieldsException | BadLengthFormatException e) {
 
