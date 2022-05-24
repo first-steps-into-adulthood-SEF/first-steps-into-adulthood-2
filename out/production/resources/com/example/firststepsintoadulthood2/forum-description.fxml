@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.ForumController">
+    <children>
+        <ImageView fitHeight="148.0" fitWidth="206.0" layoutX="62.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../logo.png" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="-37.0" layoutY="162.0" prefHeight="627.0" prefWidth="874.0" style="-fx-background-color: #E6E6FA; -fx-background-radius: 100;">
+         <children>
+            <Text layoutX="249.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What is the purpose of this forum?" wrappingWidth="375.033203125">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </Text>
+            <Text layoutX="128.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The 'First Steps Into Adulthood' forum, as the title suggests, aims to introduce young adults and even teenagers into the world of grown-ups, any user being capable to share or request advice regarding finances, cleaning, education, grooming, mental health or any inconvenience that may cause stress or confusion." textAlignment="JUSTIFY" wrappingWidth="602.033203125">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font></Text>
+            <Text layoutX="125.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Some stuff you must consider in order to have a good time on this app:" wrappingWidth="637.033203125">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="170.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Respect the theme of this forum. " wrappingWidth="437.033203125">
+               <font>
+                  <Font name="Calibri Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="170.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Be kind to one another❣" wrappingWidth="259.15350341796875">
+               <font>
+                  <Font name="Calibri Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="184.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basically, this forum functions as a Q&amp;A kind of forum, therefore reviews for a piece of media, for example, will be frowned upon." wrappingWidth="520.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="183.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We do not condone, under any circumstances, messages that promote racism, homophobia, transphobia, xenophobia, anti-semitism or any other form of hate. " wrappingWidth="507.0000000000001">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="170.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Contribute as much as possible to answering what others have to ask." wrappingWidth="547.0">
+               <font>
+                  <Font name="Calibri Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="RED" layoutX="122.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By not complying to any of the rules mentioned above, you might get your post deleted and also get a 24h ban. When it comes to posting hate messages, you will get a ban, which may vary from a week to even a permanent ban!" textAlignment="JUSTIFY" wrappingWidth="614.033203125">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Text>
+            <Line endX="56.199981689453125" layoutX="443.0" layoutY="482.0" startX="-100.0" stroke="RED" />
+         </children></AnchorPane>
+        <Button layoutX="276.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToForumDescriptionPage" style="-fx-background-color: transparent;" text="About forum">
+            <font>
+                <Font name="Calibri Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="457.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../inbox.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="72.0" fitWidth="75.0" fx:id="profilePicture" layoutX="722.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../default-avatar.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Button layoutX="558.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPostCreationPage" style="-fx-background-color: C8A2C8;" text="Create post">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Text layoutX="421.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inbox" wrappingWidth="36.0">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+      <Button layoutX="587.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToForumPage" style="-fx-background-color: transparent;" text="Get back to forum page" textFill="#2200ff">
+          <cursor>
+              <Cursor fx:constant="HAND" />
+          </cursor>
+      </Button>
+        <Button layoutX="732.0" layoutY="42.0" mnemonicParsing="false"  onAction="#viewPersonalProfile" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+            <tooltip><Tooltip text="View Profile" /></tooltip>
+        </Button>
+
+
+    </children>
+</AnchorPane>

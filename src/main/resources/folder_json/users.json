@@ -63,4 +63,17 @@
   "reportDescription" : null,
   "isAdmin" : 0,
   "reportCheck" : 0
+}, {
+  "fullName" : "Oana Radu",
+  "birthday" : "12.12.1992",
+  "username" : "oache.nai.dew",
+  "password" : "��Z�`�\r*���S<�`Ӧ�(J\u001F�b:�c*�ct���z\u0004�r�\u000F\u001A���\u0010�Ēao�\u000F}V\u001E�\u00100�%݇��w",
+  "option" : null,
+  "description" : null,
+  "profileDescription" : null,
+  "imagePath" : null,
+  "reporter" : null,
+  "reportDescription" : null,
+  "isAdmin" : 0,
+  "reportCheck" : 0
 } ]

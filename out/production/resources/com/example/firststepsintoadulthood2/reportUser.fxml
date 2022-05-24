@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firststepsintoadulthood2.controllers.UserReportController">
+   <children>
+      <Label layoutX="61.0" layoutY="179.0" text="You are intending to report the next user:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="83.0" text="REPORTING FORM" textFill="#a666a6">
+         <font>
+            <Font name="Candara Light" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="228.0" text="Check the reason why you are reporting them:">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="390.0" text="(Optional) Enter a short description of the situation:">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="languageCheckbox" layoutX="61.0" layoutY="269.0" mnemonicParsing="false" text="The user used inappropriate language.">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="themeCheckbox" layoutX="61.0" layoutY="304.0" mnemonicParsing="false" text="The user doesn't respect the theme of the forum.">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="stoleCheckbox" layoutX="61.0" layoutY="339.0" mnemonicParsing="false" text="The user stole my identity.">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="reportDescription" layoutX="66.0" layoutY="430.0" prefHeight="89.0" prefWidth="669.0" />
+      <Label fx:id="reportedUserUsername" layoutX="366.0" layoutY="183.0" textFill="#c8a2c8">
+         <font>
+            <Font name="Calibri Light" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="sendReportButton" layoutX="328.0" layoutY="559.0" mnemonicParsing="false" onAction="#sendUserReport" style="-fx-background-color: #C8A2C8;" text="SEND REPORT">
+         <font>
+            <Font name="Candara Light" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeReportFormButton" layoutX="330.0" layoutY="620.0" mnemonicParsing="false" onAction="#closeReportForm" style="-fx-border-color: C8A2C8;" text="CLOSE FORM/ABORT" />
+   </children>
+</Pane>
