@@ -67,7 +67,7 @@ public class LoginControllerTest {
             controller.usernameField.setText(TEST_USER);
             controller.passwordField.setText(TEST_PASSWORD);
             controller.LoginButtonClick(new ActionEvent());
-            assertEquals("asdf", controller.loginMessage.getText());
+            assertEquals("", controller.loginMessage.getText());
         }catch (NullPointerException ignored){
 
         }
