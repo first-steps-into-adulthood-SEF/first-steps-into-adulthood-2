@@ -76,17 +76,4 @@
   "reportDescription" : null,
   "isAdmin" : 0,
   "reportCheck" : 0
-}, {
-  "fullName" : "tester",
-  "birthday" : "1.01.2001",
-  "username" : "testuser",
-  "password" : "�d�:��A��Y�1��&p(h^B\n!\b7]�\u0002v1\u0018\ty�E�`\\;W�G5\u0014\u001C�\u001Fg��\u0005��-i�4��<\u000E��",
-  "option" : null,
-  "description" : null,
-  "profileDescription" : null,
-  "imagePath" : null,
-  "reporter" : null,
-  "reportDescription" : null,
-  "isAdmin" : 0,
-  "reportCheck" : 0
 } ]

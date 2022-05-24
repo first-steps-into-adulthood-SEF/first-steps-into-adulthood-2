@@ -2,12 +2,15 @@ package com.example.firststepsintoadulthood2.controllers;
 
 import com.example.firststepsintoadulthood2.services.FileSystemService;
 import com.example.firststepsintoadulthood2.services.UserService;
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -103,7 +106,6 @@ public class RegistrationControllerTest {
     }
 
 
-
     @Test
     public void testAddSameUserTwice() {
         controller.handleRegisterAction();
@@ -115,6 +117,27 @@ public class RegistrationControllerTest {
         }catch(NullPointerException ignored){
 
         }
+    }
+
+    @Test
+    public void testSwitchToLoginPage(){
+
+        ActionEvent event = new ActionEvent();
+
+        try{
+
+            controller.invisible.setOnAction(event1 -> {
+                try {
+                    controller.switchToLoginPage(event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+        }catch(NullPointerException ignored){
+
+        }
+
     }
 
 }
